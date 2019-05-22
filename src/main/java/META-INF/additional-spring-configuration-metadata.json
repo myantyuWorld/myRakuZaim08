@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "zaim.consumerKey",
+    "type": "java.lang.String",
+    "description": "A description for 'zaim.consumerKey'"
+  },
+  {
+    "name": "zaim.consumerSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'zaim.consumerSecret'"
+  },
+  {
+    "name": "zaim.consumerKey",
+    "type": "java.lang.String",
+    "description": "A description for 'zaim.consumerKey'"
+  }
+]}
