@@ -1,5 +1,7 @@
 package com.goldchain.www.controller;
 
+import java.util.ArrayList;
+
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -11,9 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.goldchain.www.api.APIResponseHandler;
+import com.goldchain.www.bean.MoneyBean;
+import com.goldchain.www.bean.ZaimBean;
+import com.goldchain.www.domain.ZaimApiService;
 
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.OAuthProvider;
+import oauth.signpost.exception.OAuthCommunicationException;
+import oauth.signpost.exception.OAuthExpectationFailedException;
+import oauth.signpost.exception.OAuthMessageSignerException;
+import oauth.signpost.exception.OAuthNotAuthorizedException;
 
 @Controller
 public class IndexController {
@@ -23,14 +32,23 @@ public class IndexController {
 
     @Autowired
     OAuthProvider provider;
-
+    
+    @Autowired
+    ZaimApiService zaimApiService;
+    
     /***
      * トップ画面
      * @return
+     * @throws OAuthCommunicationException 
+     * @throws OAuthExpectationFailedException 
+     * @throws OAuthNotAuthorizedException 
+     * @throws OAuthMessageSignerException 
      */
 	@RequestMapping
-	private String index() {
-		return "index";
+	private String index() throws OAuthMessageSignerException, OAuthNotAuthorizedException, OAuthExpectationFailedException, OAuthCommunicationException {
+		 // 認証用URL生成
+        String URL = provider.retrieveRequestToken(consumer, "http://localhost:18083/authenticated");
+        return "redirect:" + URL;
 	}
 	
 	/***
@@ -78,8 +96,23 @@ public class IndexController {
         String responseBody = httpclient.execute(httpget, responseHandler);
         model.addAttribute("zaimUserVerify", responseBody);
 
-        // リクエストに署名する
-        httpget = new HttpGet("https://api.zaim.net/v2/home/money");
+//        // リクエストに署名する
+//        httpget = new HttpGet("https://api.zaim.net/v2/home/money");
+//        consumer.sign(httpget);
+//
+//        // 取得
+//        responseBody = httpclient.execute(httpget, responseHandler);
+        MoneyBean bean = zaimApiService.getMoney(consumer);
+        
+        
+        httpget = new HttpGet("https://api.zaim.net/v2/home/money?start_date=2019-05-25");
+        consumer.sign(httpget);
+
+        // 取得
+        responseBody = httpclient.execute(httpget, responseHandler);
+        
+        
+        httpget = new HttpGet("https://api.zaim.net/v2/home/category");
         consumer.sign(httpget);
 
         // 取得
