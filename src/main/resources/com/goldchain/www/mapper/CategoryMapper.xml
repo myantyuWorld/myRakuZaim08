@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goldchain.www.mapper.CategoryMapper">
+
+<resultMap type="com.goldchain.www.domain.Category"
+		id="categoryResultMap">
+		<id property="category_id" column="category_id" />
+		<result property="category_id" column="category_id" />
+		<result property="category_name" column="category_name" />
+	</resultMap>
+	<!-- <select id="selectAll" resultMap="memoResultMap">
+	SELECT
+	  MMID
+	  , MMSB
+	  , MMNM 
+	FROM
+	  t_memo; 
+	</select>
+	<select id="selectMaxMMid" resultType="int">
+		SELECT
+		  max(mmid) + 1
+		FROM
+		  t_memo; 
+	</select>
+	
+	<insert id="insertMemo" parameterType="com.goldchain.www.domain.Memo">
+		INSERT 
+		INTO t_memo 
+		VALUES (#{mmid}, #{mmsb}, #{mmnm});
+	</insert>
+	
+	<delete id="deleteMemo">
+		DELETE FROM t_memo WHERE mmid = #{mmid};
+	</delete> -->
+	<select id="selectAll" resultMap="categoryResultMap">
+		SELECT
+		  category_id
+		  , category_name 
+		FROM
+		  m_category;
+	</select>
+	
+</mapper>

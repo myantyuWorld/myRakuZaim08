@@ -1,7 +1,5 @@
 package com.goldchain.www.controller;
 
-import java.util.ArrayList;
-
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.goldchain.www.api.APIResponseHandler;
 import com.goldchain.www.bean.MoneyBean;
-import com.goldchain.www.bean.ZaimBean;
 import com.goldchain.www.domain.ZaimApiService;
 
 import oauth.signpost.OAuthConsumer;
@@ -25,6 +22,7 @@ import oauth.signpost.exception.OAuthMessageSignerException;
 import oauth.signpost.exception.OAuthNotAuthorizedException;
 
 @Controller
+@RequestMapping("pages/index")
 public class IndexController {
 
 	@Autowired
@@ -44,10 +42,10 @@ public class IndexController {
      * @throws OAuthNotAuthorizedException 
      * @throws OAuthMessageSignerException 
      */
-	@RequestMapping
+	@RequestMapping("/index")
 	private String index() throws OAuthMessageSignerException, OAuthNotAuthorizedException, OAuthExpectationFailedException, OAuthCommunicationException {
 		 // 認証用URL生成
-        String URL = provider.retrieveRequestToken(consumer, "http://localhost:18083/authenticated");
+        String URL = provider.retrieveRequestToken(consumer, "http://localhost:18083/pages/index/authenticated");
         return "redirect:" + URL;
 	}
 	
@@ -59,7 +57,7 @@ public class IndexController {
 	@RequestMapping("/oauth")
 	private String oauth() throws Exception	{
 		 // 認証用URL生成
-        String URL = provider.retrieveRequestToken(consumer, "http://localhost:18083/authenticated");
+        String URL = provider.retrieveRequestToken(consumer, "http://localhost:18083/pages/index/authenticated");
         return "redirect:" + URL;
 	}
 	
@@ -117,7 +115,7 @@ public class IndexController {
 
         // 取得
         responseBody = httpclient.execute(httpget, responseHandler);
-        return "index";
+        return "pages/index/index";
     }
 	
 }

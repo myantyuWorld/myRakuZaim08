@@ -35,4 +35,6 @@ public class ZaimApiService extends ZaimBaseService {
 		
 		return this.jsonByZaimBean(responseBody);
 	}
+	
+	
 }

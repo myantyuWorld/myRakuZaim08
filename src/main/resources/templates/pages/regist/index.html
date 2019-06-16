@@ -3,208 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
-<script src="/js/jquery.js" th:src="@{/js/jquery.js}"></script> -->
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.css}"/>
+<script src="/js/jquery.js" th:src="@{/js/jquery.js}"></script>
 
-<link rel="stylesheet" href="../../../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
-<script src="../../../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../../../static/css/bootstrap-datepicker.min.css">
-<script type="text/javascript" src="../../../static/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="../../../static/js/locales/bootstrap-datepicker.ja.min.js"></script>
+<link rel="stylesheet" media="all" th:href="@{/css/regist/index.css}"/>
+<script src="/js/regist/index.js" th:src="@{/js/regist/index.js}"></script>
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap-datepicker.min.css}">
+<script type="text/javascript"
+	th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/js/locales/bootstrap-datepicker.ja.min.js}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<style>
-    
-.row {
-   border-bottom: 1px solid #333333;
-   padding: 10px;
-}
-
-.toggle-buttons {
-  display: flex;
-}
-
-.toggle-buttons.vertical {
-  flex-direction: column;
-}
-
-.toggle-buttons label {
-  display: flex;
-  position: relative;
-}
-
-.toggle-buttons [type=radio],
-.toggle-buttons [type=checkbox] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* appearance: none; for IE11 */
-_:-ms-lang(x)::-ms-backdrop, .toggle-buttons [type=radio],
-_:-ms-lang(x)::-ms-backdrop, .toggle-buttons [type=checkbox] {
-  visibility: hidden;
-}
-
-.toggle-buttons .button {
-  z-index: 1;
-}
-
-.toggle-buttons.vertical .button {
-  width: 100%;
-}
-
-.toggle-buttons:not(.vertical) :not(:first-child) .button {
-  border-left: 1px solid #567;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.toggle-buttons:not(.vertical) :not(:last-child) .button {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.toggle-buttons.vertical :not(:first-child) .button {
-  border-top: 1px solid #567;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.toggle-buttons.vertical :not(:last-child) .button {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.toggle-buttons :checked + .button {
-  background-color: #345;
-}
-
-.toggle-buttons :disabled + .button {
-  cursor: not-allowed;
-  opacity: .6;
-  color: #def;
-}
-.button {
-  display: inline-block;
-  padding: .5em 1em;
-  border-radius: 4px;
-  text-align: center;
-  color: #eff;
-  background-color: #678;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #567;
-}
-
-.button:disabled {
-  cursor: not-allowed;
-  opacity: .6;
-  color: #def;
-}
-.searchclear {
-    position: absolute;
-    right: 5px;
-    top: 0;
-    bottom: 0;
-    height: 14px;
-    margin: auto;
-    font-size: 14px;
-    cursor: pointer;
-    color: #ccc;
-}
-</style>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-xs-12 ">
-            <div class="form-group" id="">
-                <label for="comment">Money</label>
-                <div class="input-group btn-group">
-                    <input type="text" class="form-control" value="" placeholder="金額を入力">
-                    <span class="searchclear glyphicon glyphicon-remove-circle"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-xs-12 ">
-            <div class="form-group" id="datepicker-default">
-                <label for="comment">Calender</label>
-                <div class="input-group date">
-                <input type="text" class="form-control" value="">
-                <div class="input-group-addon">
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-xs-12 ">
-            <div class="form-group" id="">
-                    <div class="form-group select">
-                        <label for="comment">Category</label>
-                        <select id="" class="form-control">
-                            <option value="1">test</option>
-                            <option value="1">test</option>
-                            <option value="1">test</option>
-                            <option value="1">test</option>
-                            <option value="1">test</option>
-                            <option value="1">test</option>
-                            <option value="1">test</option>
-                        </select>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-xs-12 ">
-                <div class="form-group">
-                    <label for="comment">Memo:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-xs-12 ">
-            <div class="form-group form-inline">
-                <div class="toggle-buttons">
-                <label>
-                    <input type="radio" name="radio-1" checked="checked">
-                    <span class="button">Saki</span>
-                </label>
-                </div>
-                <div class="toggle-buttons">
-                <label>
-                    <input type="radio" name="radio-1">
-                    <span class="button">Yuichi</span>
-                </label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6 col-xs-12 ">
-            <button type="button" class="btn btn-danger">記録</button>
-        </div>
-    </div>
+	<form method="post" action="./pages/regist/post" th:object="${form}" name="form">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-xs-12 ">
+					<div class="form-group" id="">
+						<label for="comment">Money</label>
+						<div class="input-group btn-group">
+							<input type="text" class="form-control" value="" id="money" name="money"
+								placeholder="金額を入力"> <span
+								class="searchclear glyphicon glyphicon-remove-circle"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-xs-12 ">
+					<div class="form-group" id="datepicker-default">
+						<label for="comment">Calender</label>
+						<div class="input-group date">
+							<input type="text" class="form-control" value="" id="date" name="date"> 
+							<div class="input-group-addon"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-xs-12 ">
+					<div class="form-group form-inline" id="">
+						<div class="form-group select">
+							<label for="comment">Category</label><br/>
+						 	<th:block th:each="cate : ${categoryList}" th:object="${cate}">
+							 	<div class="toggle-buttons">
+									<label>
+								 		<input type="radio" name="category" th:value="*{category_id}">
+								 		<span class="button">[[*{category_name}]]</span>
+									</label>
+							 	</div>
+						 	</th:block>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-xs-12 ">
+					<div class="form-group">
+						<label for="comment">Memo:</label>
+						<textarea class="form-control" rows="5" id="biko" name="biko"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-xs-12 ">
+					<div class="form-group form-inline">
+						<div class="toggle-buttons">
+							<label> <input type="radio" name="kubn" value="1"
+								checked="checked"> <span class="button">Saki</span>
+							</label>
+						</div>
+						<div class="toggle-buttons">
+							<label> <input type="radio" name="kubn" value="2"> <span
+								class="button">Yuichi</span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-xs-12 ">
+					<button type="button" class="btn btn-danger" id="btnInput">記録</button>
+				</div>
+			</div>
 
-</div>
+		</div>
+	</form>
 </body>
-<script>
-$(function(){
-    //Default
-    $('#datepicker-default .date').datepicker({
-        format: "yyyy/mm/dd",
-        language: 'ja'
-    });
-});
-</script>
 </html>
