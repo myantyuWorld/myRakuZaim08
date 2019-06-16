@@ -2,10 +2,10 @@ $(function(){
 	
 	
     //Default
-    $('#datepicker-default .date').datepicker({
-        format: "yyyy/mm/dd",
-        language: 'ja'
-    });
+    // $('#datepicker-default .date').datepicker({
+    //     format: "yyyy/mm/dd",
+    //     language: 'ja'
+    // });
     
 	// 記録ボタン押下
 	$("#btnInput").on('click', function() {
