@@ -1,37 +1,319 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/css/bootstrap.css"
-	th:href="@{/css/bootstrap.css}">
+<!-- Required meta tags always come first -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<!-- Font Awesome -->
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-<script src="/js/jquery.js" th:src="@{/js/jquery.js}"></script>
-<head>
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Bootstrap core CSS -->
+<link href="../../../static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Material Design Bootstrap -->
+<link href="../../../static/css/mdb.min.css" rel="stylesheet">
 <style>
-	.center-block {
-		text-align: center;
-	}
+body {
+	background:
+		url("http://mdbootstrap.com/images/regular/nature/img%20(62)")
+		no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 </style>
-<meta charset="UTF-8">
-<title>Hello! Myラク財務!</title>
+<title>ラクラク家計簿</title>
 </head>
-<body>
-	<div class="container">
+
+<body class="fixed-sn blue-skin">
+	<!--Double Navigation-->
+	<header>
+		<!-- Sidebar navigation -->
+		<ul id="slide-out"
+			class="side-nav fixed custom-scrollbar ps-container ps-theme-default"
+			data-ps-id="2a9a7581-7ddb-3549-d0f3-669155eb440e"
+			style="transform: translateX(-100%);">
+
+			<!-- Logo -->
+			<li>
+				<div class="logo-wrapper waves-light waves-effect waves-light">
+					<a href="#"><img
+						src="http://mdbootstrap.com/wp-content/uploads/2015/12/mdb-white2.png"
+						class="img-fluid flex-center"></a>
+				</div>
+			</li>
+			<!--/. Logo -->
+
+			<!--Search Form-->
+			<li>
+				<form class="search-form" role="search">
+					<div class="form-group waves-light waves-effect waves-light">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+				</form>
+			</li>
+			<!--/.Search Form-->
+
+			<!-- Side navigation links -->
+			<li>
+				<ul class="collapsible collapsible-accordion">
+					<!-- <li class=""><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-cutlery"></i> Categories<i class="fa fa-angle-down rotate-icon"></i></a>
+                                  <div class="collapsible-body" style="display: none;">
+                                      <ul>
+                                          <li><a href="#" class="waves-effect">Breakfast</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Sandwiches</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Lunch</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Dessert</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Snacks</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Soups</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                              <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-coffee"></i> Workshops<i class="fa fa-angle-down rotate-icon"></i></a>
+                                  <div class="collapsible-body">
+                                      <ul>
+                                          <li><a href="#" class="waves-effect">How it looks?</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Cooking workshops</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                              <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-thumbs-o-up"></i> Collaboration<i class="fa fa-angle-down rotate-icon"></i></a>
+                                  <div class="collapsible-body">
+                                      <ul>
+                                          <li><a href="#" class="waves-effect">My past collaborations</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Write me your idea</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                              <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-photo"></i> Gallery<i class="fa fa-angle-down rotate-icon"></i></a>
+                                  <div class="collapsible-body">
+                                      <ul>
+                                          <li><a href="#" class="waves-effect">Photos</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Videos</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                              <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-newspaper-o"></i> Publications<i class="fa fa-angle-down rotate-icon"></i></a>
+                                  <div class="collapsible-body">
+                                      <ul>
+                                          <li><a href="#" class="waves-effect">Media</a>
+                                          </li>
+                                          <li><a href="#" class="waves-effect">Books</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li> -->
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-heart"></i> About<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body">
+							<ul>
+								<li><a href="#" class="waves-effect">Memo</a></li>
+								<li><a href="#" class="waves-effect">Regist</a></li>
+							</ul>
+						</div></li>
+				</ul>
+			</li>
+			<!--/. Side navigation links -->
+
+			<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+				<div class="ps-scrollbar-x" tabindex="0"
+					style="left: 0px; width: 0px;"></div>
+			</div>
+			<div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;">
+				<div class="ps-scrollbar-y" tabindex="0"
+					style="top: 0px; height: 0px;"></div>
+			</div>
+		</ul>
+		<!--/. Sidebar navigation -->
+
+		<!--Navbar-->
+		<nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+			<!-- SideNav slide-out button -->
+			<div class="float-xs-left">
+				<a href="#" data-activates="slide-out" class="button-collapse"><i
+					class="fa fa-bars"></i></a>
+			</div>
+			<!-- Breadcrumb-->
+			<div class="breadcrumb-dn">
+				<p>ラクラク家計簿</p>
+			</div>
+			<ul class="nav navbar-nav float-xs-right">
+				<li class="nav-item "><a
+					class="nav-link waves-effect waves-light"><i class="fa fa-user"></i>
+						<span class="hidden-sm-down">管理</span></a></li>
+				<li class="nav-item dropdown">
+					<button type="button"
+						class="btn btn-primary btn-sm btn-lg waves-effect waves-light">#</button>
+				</li>
+			</ul>
+
+		</nav>
+		<!--/.Navbar-->
+	</header>
+	<!--/Double Navigation-->
+	<main>
+	<div class="container-fluid text-xs-center">
 		<div class="row">
-			<div class="col-sm-12">
-				<div class="center-block">
-					<h1 class="">
-						WelCome to<br />MyRakuZaim!
-					</h1>
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-block">
+						<h4 class="card-title text-xs-left">前月（今月）の支出比較</h4>
+						<div class="card-body">
+							<div class="chartjs-size-monitor"
+								style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+								<div class="chartjs-size-monitor-expand"
+									style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+									<div
+										style="position: absolute; width: 1000000px; height: 1000000px; left: 0; top: 0"></div>
+								</div>
+								<div class="chartjs-size-monitor-shrink"
+									style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+									<div
+										style="position: absolute; width: 200%; height: 200%; left: 0; top: 0"></div>
+								</div>
+							</div>
+							<canvas id="myChart" width="590" height="295"
+								class="chartjs-render-monitor"
+								style="display: block; width: 590px; height: 295px;"></canvas>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<a href="/pages/memo" class="btn btn-info">memo</a>
-			<a href="/pages/regist" class="btn btn-info">regist</a>
+			<!-- 直近の支出 ５つくらいを -->
+			<div class="col-md-7 mb-4">
+				<!--Card-->
+				<div class="card">
+					<div class="card-block">
+						<!--Card content-->
+						<div class="card-body">
+							<h4 class="card-title text-xs-left">直近の支出</h4>
+							<!-- Table  -->
+							<table class="table table-striped">
+								<!-- Table head -->
+								<thead class="blue-grey lighten-4">
+									<tr>
+										<th>#</th>
+										<th>category</th>
+										<th>date</th>
+										<th>input</th>
+									</tr>
+								</thead>
+								<!-- Table head -->
+								<!-- Table body -->
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td class="text-xs-left">食費</td>
+										<td class="text-xs-left">2019-06-14</td>
+										<td class="text-xs-right">\1,000</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td class="text-xs-left">食費</td>
+										<td class="text-xs-left">2019-06-14</td>
+										<td class="text-xs-right">\1,000</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td class="text-xs-left">食費</td>
+										<td class="text-xs-left">2019-06-14</td>
+										<td class="text-xs-right">\1,000</td>
+									</tr>
+
+								</tbody>
+								<!-- Table body -->
+							</table>
+							<!-- Table  -->
+						</div>
+					</div>
+				</div>
+				<!--/.Card-->
+
+			</div>
+			<div class="col-md-5">
+				<div class="card">
+					<div class="card-block">
+						<div class="card-title text-xs-left">
+							<h4>test</h4>
+						</div>
+						<p class="card-footer">
+							<span class="left">お小遣い</span> <span class="right">\21,000</span>
+						</p>
+						<p class="card-footer">
+							<span class="left">引っ越し代</span> <span class="right">\40,000</span>
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	</main>
+	<!-- SCRIPTS -->
+	<script type="text/javascript"
+		src="../../../static/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/tether.min.js"></script>
+	<script type="text/javascript"
+		src="../../../static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/mdb.min.js"></script>
+	<script>
+        $(".button-collapse").sideNav();
+
+        var el = document.querySelector('.custom-scrollbar');
+
+        Ps.initialize(el);
+    </script>
+	<script>
+        $(function() {
+            var data = {
+                labels: ["食費", "日用品", "服", "交際費", "May", "Jun", "Jul"],
+                datasets: [{
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                }, {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }]
+            };
+            var option = {
+                responsive: true,
+                scaleFontSize: 20,
+            };
+            // Chart 3
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var barChart = new Chart(ctx).Bar(data, option);
+        });
+    </script>
 </body>
+
 </html>
