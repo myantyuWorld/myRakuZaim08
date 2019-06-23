@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 <!-- Required meta tags always come first -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Material Design Bootstrap Template</title>
+<title>メモ!</title>
 
 <!-- Font Awesome -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Bootstrap core CSS -->
-<link href="../../../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 
 <!-- Material Design Bootstrap -->
-<link href="../../../static/css/mdb.min.css" rel="stylesheet">
+<link href="../../../static/css/mdb.min.css" th:href="@{/css/mdb.min.css}" rel="stylesheet">
 <style>
 body {
 	background:
@@ -117,126 +116,127 @@ body {
 
 	<main class="">
 	<div class="container-fluid text-xs-center">
-		<div class="row">
-			<!-- 食費 -->
-			<div class="col-md-6">
-				<div class="row text-xs-left">
-					<div class="col-md-12">
-						<div class="card card-food">
-							<div class="view overlay hm-white-slight">
-								<img src="../../../static/img/food.jpg" class="img-fluid" alt="">
-								<a>
-									<div class="mask waves-effect waves-light"></div>
-								</a>
-							</div>
-							<div class="card-block">
-								<h4 class="card-title">Foods</h4>
-								<div class="md-form">
-									<i class="fa fa-tag prefix"></i> <input type="text" id="form1"
-										class="form-control"> <label for="form1" class="">Something
-										... </label>
-									<div class="row text-xs-right">
-										<a class="btn btn-indigo btn-lg waves-effect waves-light"
-											onclick="toastr.info('テストを登録しました！.');">Regist</a>
-									</div>
+			<div class="row">
+				<!-- 食費 -->
+				<div class="col-md-6">
+					<div class="row text-xs-left">
+						<div class="col-md-12">
+							<div class="card card-food">
+								<div class="view overlay hm-white-slight">
+									<img src="../../../static/img/food.jpg" th:src="@{/img/food.jpg}" class="img-fluid" alt="">
+									<a>
+										<div class="mask waves-effect waves-light"></div>
+									</a>
 								</div>
-								<!-- ここ繰り返す -->
-								<th:block th:each="memo : ${memos}" th:object="memo">
-									<div th:if="*{mmsb}==2" th:class="card-food- + *{mmid}">
-										<p class="card-footer">
-											<span class="left">[[*{mmnm}]]</span> <span class="right"><button
-													id="btn-food-1" name="btn-food"
-													class="btn btn-outline-info btn-sm">X</button></span>
-										</p>
+								<div class="card-block">
+									<h4 class="card-title">Foods</h4>
+									<div class="md-form">
+										<i class="fa fa-tag prefix"></i> <input type="text" id="mmnmFood" 
+											class="form-control"> <label for="form1" class="">Something
+											... </label>
+										<div class="row text-xs-right">
+											<button class="btn btn-indigo btn-lg waves-effect waves-light"
+													id="btnFood">Regist</button>
+										</div>
 									</div>
-								</th:block>
-								<!-- ここ繰り返す -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- 日用品 -->
-			<div class="col-md-6">
-				<div class="row text-xs-left">
-					<div class="col-md-12">
-						<div class="card card-food">
-							<div class="view overlay hm-white-slight">
-								<img src="../../../static/img/nitiyou.jpg" class="img-fluid"
-									alt=""> <a>
-									<div class="mask waves-effect waves-light"></div>
-								</a>
-							</div>
-							<div class="card-block">
-								<h4 class="card-title">Daily necessities</h4>
-								<div class="md-form">
-									<i class="fa fa-tag prefix"></i> <input type="text" id="form1"
-										class="form-control"> <label for="form1" class="">Something
-										... </label>
-									<div class="row text-xs-right">
-										<a class="btn btn-success btn-lg waves-effect waves-light"
-											onclick="toastr.success('テストを登録しました！.');">Regist</a>
-									</div>
+									<!-- ここ繰り返す -->
+									<th:block th:each="memo : ${memos}" >
+										<div th:if="${memo.mmsb}==2" th:class="card-food- + ${memo.mmid}">
+											<p class="card-footer">
+												<span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
+														id="btn-food-1" name="btn-food"
+														class="btn btn-outline-info btn-sm">X</button></span>
+											</p>
+										</div>
+									</th:block>
+									<!-- ここ繰り返す -->
 								</div>
-								<!-- ここ繰り返す -->
-								<th:block th:each="memo : ${memos}" th:object="memo">
-									<div th:if="*{mmsb}==1" th:class="card-nitiyou- + *{mmid}">
-										<p class="card-footer">
-											<span class="left">[[*{mmnm}]]</span> <span class="right"><button
-													id="btn-food-1" name="btn-food"
-													class="btn btn-outline-info btn-sm">X</button></span>
-										</p>
-									</div>
-								</th:block>
-								<!-- ここ繰り返す -->
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<a class="btn btn-default btn-lg waves-effect waves-light"
-				data-toggle="modal" data-target="#modal-test"> <i
-				class="fa fa-shopping-cart left"></i> <span>Cart Modal</span>
-			</a>
-
-
-			<div class="modal fade cart-modal" id="modal-test" tabindex="-1"
-				role="dialog" aria-labelledby="myModalLabel" style="display: none;"
-				aria-hidden="true">
-				<div class="modal-dialog modal-notify modal-info" role="document">
-					<!--Content-->
-					<div class="modal-content">
-						<!--Header-->
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
-							<h4 class="modal-title" id="myModalLabel">警告</h4>
-						</div>
-						<!--Body-->
-						<div class="modal-body">test</div>
-						<!--Footer-->
-						<div class="modal-footer">
-							<button type="button"
-								class="btn btn-default waves-effect waves-light"
-								data-dismiss="modal">Close</button>
+	
+				<!-- 日用品 -->
+				<div class="col-md-6">
+					<div class="row text-xs-left">
+						<div class="col-md-12">
+							<div class="card card-food">
+								<div class="view overlay hm-white-slight">
+									<img src="../../../static/img/nitiyou.jpg" th:src="@{/img/nitiyou.jpg}" class="img-fluid"
+										alt=""> <a>
+										<div class="mask waves-effect waves-light"></div>
+									</a>
+								</div>
+								<div class="card-block">
+									<h4 class="card-title">Daily necessities</h4>
+									<div class="md-form">
+										<i class="fa fa-tag prefix"></i> <input type="text" id="mmnmNichiyou" 
+											class="form-control"> <label for="form1" class="">Something
+											... </label>
+										<div class="row text-xs-right">
+											<button class="btn btn-success btn-lg waves-effect waves-light"
+													id="btnNishityou"
+												onclick="toastr.success('テストを登録しました！.');">Regist</button>
+										</div>
+									</div>
+									<!-- ここ繰り返す -->
+									<th:block th:each="memo : ${memos}">
+										<div th:if="${memo.mmsb}==1" th:class="card-food- + ${memo.mmid}">
+											<p class="card-footer">
+												<span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
+														id="btn-food-1" name="btn-food"
+														class="btn btn-outline-info btn-sm">X</button></span>
+											</p>
+										</div>
+									</th:block>
+									<!-- ここ繰り返す -->
+								</div>
+							</div>
 						</div>
 					</div>
-					<!--/.Content-->
+				</div>
+				<a class="btn btn-default btn-lg waves-effect waves-light"
+					data-toggle="modal" data-target="#modal-test"> <i
+					class="fa fa-shopping-cart left"></i> <span>Cart Modal</span>
+				</a>
+	
+	
+				<div class="modal fade cart-modal" id="modal-test" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel" style="display: none;"
+					aria-hidden="true">
+					<div class="modal-dialog modal-notify modal-info" role="document">
+						<!--Content-->
+						<div class="modal-content">
+							<!--Header-->
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">警告</h4>
+							</div>
+							<!--Body-->
+							<div class="modal-body">test</div>
+							<!--Footer-->
+							<div class="modal-footer">
+								<button type="button"
+									class="btn btn-default waves-effect waves-light"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+						<!--/.Content-->
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 	</main>
 	<!-- SCRIPTS -->
 	<script type="text/javascript"
-		src="../../../static/js/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="../../../static/js/tether.min.js"></script>
+		src="../../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+	<script type="text/javascript" src="../../../static/js/tether.min.js" th:src="@{/js/tether.min.js}"></script>
 	<script type="text/javascript"
-		src="../../../static/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../../../static/js/mdb.min.js"></script>
+		src="../../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../../static/js/mdb.min.js" th:src="@{/js/mdb.min.js}"></script>
 	<script>
 		$(".button-collapse").sideNav();
 
@@ -244,6 +244,7 @@ body {
 
 		Ps.initialize(el);
 	</script>
+	<script type="text/javascript" src="../../../static/js/memo/index.js" th:src="@{/js/memo/index.js}"></script>
 	<div class="hiddendiv common"></div>
 	<div class="drag-target"
 		style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>

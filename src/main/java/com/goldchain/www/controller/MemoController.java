@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.goldchain.www.bean.MemoForm;
 import com.goldchain.www.domain.Memo;
 import com.goldchain.www.domain.MemoService;
 
@@ -42,7 +43,7 @@ public class MemoController {
 	 */
 	@ResponseBody
 	@PostMapping("/pages/memo/post")
-	private int post(@ModelAttribute Memo memo)
+	private Object post(@ModelAttribute Memo memo)
 	{
 		System.out.println(memo.getMmnm());
 		int intMaxMMid = memoService.selectMaxMMid();
@@ -51,7 +52,7 @@ public class MemoController {
 			memo.setMmid(intMaxMMid);
 			intInsertResult = memoService.insertMemo(memo);
 		}
-		return intInsertResult;
+		return memo;
 	}
 	
 	@ResponseBody
