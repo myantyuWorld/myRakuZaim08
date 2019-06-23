@@ -1,25 +1,47 @@
 $(function(){
-	
-	
     //Default
-    // $('#datepicker-default .date').datepicker({
-    //     format: "yyyy/mm/dd",
-    //     language: 'ja'
-    // });
+     $('#datepicker-default .date').datepicker({
+         format: "yyyy/mm/dd",
+         language: 'ja'
+     });
     
 	// 記録ボタン押下
-	$("#btnInput").on('click', function() {
+	$("button[name='btnInput'").on('click', function() {
+		console.log("call");
 		
-		$form = $("form");
-		$.ajax({
-	        type: "post",
-	        url: location.pathname + "/post",  //Controllerを呼び出すURLになっていればOK
-	        data: $("form").serialize()
-	      }).then(function (result) {
-	        console.log('成功時の処理が書けます。下のように。');
-	        let content = result.content;
-	      }, function () {
-	        console.log('失敗時の処理が書けます');
-	      });
+		var data = {
+			 money : $("#money").val(),
+			 date : $("#date").val(),
+			 category : $("input[name='category']:checked").val(),
+			 kubn : $("input[name='kubn']:checked").val(),
+			 biko : $("#biko").text()
+		 }
+		// 必須チェック
+		if (!checkInput(data)) {
+			toastr.error("未入力の項目があります！");
+			return;
+		}
+		ajaxRegistForm(data);
 	});
 });
+
+// 入力チェックメソッド
+function checkInput(data) {
+	if (data["money"] == "") {return false;;}
+	if (data["date"] == "") {return false;;}
+	return true;
+}
+// 支出オブジェクトを登録するAPIをたたくメソッド
+function ajaxRegistForm(data) {
+	$.ajax({
+	    type: "post",
+	    url: location.pathname + "post",  
+	    data: data
+	}).then(function (result) {
+		if (result) {
+			toastr.success("登録しました！");
+		}
+	}, function () {
+		toastr.error('Ajaxリクエストに失敗しました。myantyuに相談してね！');
+	});
+}

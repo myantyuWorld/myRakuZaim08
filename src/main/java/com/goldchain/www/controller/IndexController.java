@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.goldchain.www.api.APIResponseHandler;
 import com.goldchain.www.bean.MoneyBean;
 import com.goldchain.www.domain.ZaimApiService;
+import com.goldchain.www.domain.ZaimInfo;
 
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.OAuthProvider;
@@ -24,7 +25,10 @@ import oauth.signpost.exception.OAuthNotAuthorizedException;
 @Controller
 @RequestMapping("pages/index")
 public class IndexController {
-
+	
+	@Autowired
+	ZaimInfo zaiminfo;
+	
 	@Autowired
     OAuthConsumer consumer;
 
@@ -76,13 +80,14 @@ public class IndexController {
         // accessTokenとaccessTokenSecretを生成する
         provider.retrieveAccessToken(consumer, oauthVerifier);
 
-     // トークンを取得（これを保存しておくと再認証しなくていい
-        String accessToken = consumer.getToken();
-        String accessTokenSecret = consumer.getTokenSecret();
+        // トークンを取得（これを保存しておくと再認証しなくていい
+        setZaimAccessToken(consumer);
         
-     // 保存していたトークンをセット
-        consumer.setTokenWithSecret(accessToken, accessTokenSecret);
-     // HttpClient準備
+        // 保存していたトークンをセット
+        consumer.setTokenWithSecret(zaiminfo.getAccessToken(), zaiminfo.getAccessTokenSecret());
+//        consumer.setTokenWithSecret(accessToken, accessTokenSecret);
+     
+        // HttpClient準備
         CloseableHttpClient httpclient = HttpClients.createDefault();
         ResponseHandler<String> responseHandler = new APIResponseHandler();
 
@@ -109,7 +114,6 @@ public class IndexController {
         // 取得
         responseBody = httpclient.execute(httpget, responseHandler);
         
-        
         httpget = new HttpGet("https://api.zaim.net/v2/home/category");
         consumer.sign(httpget);
 
@@ -117,5 +121,15 @@ public class IndexController {
         responseBody = httpclient.execute(httpget, responseHandler);
         return "pages/index/index";
     }
+
+    /***
+     * 
+     * @param consumer
+     * 		consumer
+     */
+	private void setZaimAccessToken(OAuthConsumer consumer) {
+        zaiminfo.setAccessToken(consumer.getToken());
+        zaiminfo.setAccessTokenSecret(consumer.getTokenSecret());
+	}
 	
 }

@@ -12,30 +12,49 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.goldchain.www.bean.RegistForm;
+import com.goldchain.www.domain.ZaimApiService;
+import com.goldchain.www.domain.ZaimInfo;
 import com.goldchain.www.domain.common.CategoryService;
 
+import oauth.signpost.OAuthConsumer;
+import oauth.signpost.OAuthProvider;
+
 @Controller
+@RequestMapping("pages/regist")
 public class RegistController {
 	
 	@Autowired
+	ZaimInfo zaiminfo;
+	
+	@Autowired
+	OAuthConsumer consumer;
+	
+	@Autowired
+	OAuthProvider provider;
+	
+	@Autowired
 	CategoryService categoryService;
+    
+    @Autowired
+    ZaimApiService zaimApiService;
 
-	@RequestMapping("/pages/regist")
+	@RequestMapping("")
 	public String index(Model model) {
-		// 
 		model.addAttribute("categoryList", this.categoryService.selectAll());
-		
-		return "pages/regist/index";
+		return "pages/regist/index_material";
 	}
 	
 	@ResponseBody
-	@PostMapping("/pages/regist/post")
-	public void post(@ModelAttribute("form") @Valid RegistForm form, BindingResult result, Model model) {
+	@PostMapping("/post")
+	public Object post(@ModelAttribute @Valid RegistForm form, BindingResult result, Model model) {
+		System.out.println("");
 		// Formクラスでのバリデーションエラーチェック
 		if (result.hasErrors()) {
-			
+			return false;
 		}
+		// Zaimへ送信する
 		
-		System.out.println("test");
+		
+		return true;
 	}
 }

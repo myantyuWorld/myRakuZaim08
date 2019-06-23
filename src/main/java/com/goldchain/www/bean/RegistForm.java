@@ -1,21 +1,28 @@
 package com.goldchain.www.bean;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.apache.ibatis.javassist.expr.NewArray;
+
 public class RegistForm {
 
+	@NotNull
 	private Integer money;
-	private Date date;
+	
+	@NotNull
+	private String date;
+	
 	private Integer category;
 	
-	@NotEmpty
-	@Pattern(regexp = "^[^ -~｡-ﾟ]*$")
 	private String biko;
+	
 	private Integer kubn;
 
 	public Integer getMoney() {
@@ -26,11 +33,11 @@ public class RegistForm {
 		this.money = money;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getDate() {
+		return new SimpleDateFormat("yyyyMMdd").format(this.date);
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -57,6 +64,5 @@ public class RegistForm {
 	public void setKubn(Integer kubn) {
 		this.kubn = kubn;
 	}
-	
 	
 }
