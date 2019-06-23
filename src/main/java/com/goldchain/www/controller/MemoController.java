@@ -2,9 +2,12 @@ package com.goldchain.www.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,15 +46,16 @@ public class MemoController {
 	 */
 	@ResponseBody
 	@PostMapping("/pages/memo/post")
-	private Object post(@ModelAttribute Memo memo)
+	private Object post(@ModelAttribute @Valid Memo memo,  BindingResult result)
 	{
-		System.out.println(memo.getMmnm());
+		// 入力チェック
+		if (result.hasErrors()) {
+			return null;
+		}
 		int intMaxMMid = memoService.selectMaxMMid();
 		int intInsertResult = 0;
-		if (intMaxMMid != 0) {
-			memo.setMmid(intMaxMMid);
-			intInsertResult = memoService.insertMemo(memo);
-		}
+		memo.setMmid(intMaxMMid);
+		intInsertResult = memoService.insertMemo(memo);
 		return memo;
 	}
 	

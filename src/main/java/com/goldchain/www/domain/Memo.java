@@ -1,10 +1,14 @@
 package com.goldchain.www.domain;
 
+import javax.validation.constraints.NotBlank;
 
 public class Memo {
 
+	
 	private int mmid;
+	
 	private int mmsb;
+	@NotBlank
 	private String mmnm;
 	
 	public int getMmid() {

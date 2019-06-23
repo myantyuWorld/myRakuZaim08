@@ -1,253 +1,209 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<!-- Required meta tags always come first -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>メモ!</title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>メモ!</title>
 
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- Bootstrap core CSS -->
-<link href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 
-<!-- Material Design Bootstrap -->
-<link href="../../../static/css/mdb.min.css" th:href="@{/css/mdb.min.css}" rel="stylesheet">
-<style>
-body {
-	background:
-		url("http://mdbootstrap.com/images/regular/nature/img%20(62)")
-		no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-</style>
+    <!-- Material Design Bootstrap -->
+    <link href="../../../static/css/mdb.min.css" th:href="@{/css/mdb.min.css}" rel="stylesheet">
+    <style>
+        body {
+            background: url("http://mdbootstrap.com/images/regular/nature/img%20(62)") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
 <style>
+
 </style>
 
 <body class="fixed-sn blue-skin">
-	<!--Double Navigation-->
-	<header>
-		<!-- Sidebar navigation -->
-		<ul id="slide-out"
-			class="side-nav fixed custom-scrollbar ps-container ps-theme-default"
-			data-ps-id="2a9a7581-7ddb-3549-d0f3-669155eb440e"
-			style="transform: translateX(-100%);">
+    <!--Double Navigation-->
+    <header>
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav fixed custom-scrollbar ps-container ps-theme-default" data-ps-id="2a9a7581-7ddb-3549-d0f3-669155eb440e" style="transform: translateX(-100%);">
 
-			<!-- Logo -->
-			<li>
-				<div class="logo-wrapper waves-light waves-effect waves-light">
-					<a href="#"><img
-						src="http://mdbootstrap.com/wp-content/uploads/2015/12/mdb-white2.png"
-						class="img-fluid flex-center"></a>
-				</div>
-			</li>
-			<!--/. Logo -->
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light waves-effect waves-light">
+                    <a href="#"><img src="http://mdbootstrap.com/wp-content/uploads/2015/12/mdb-white2.png" class="img-fluid flex-center"></a>
+                </div>
+            </li>
+            <!--/. Logo -->
 
-			<!--Search Form-->
-			<li>
-				<form class="search-form" role="search">
-					<div class="form-group waves-light waves-effect waves-light">
-						<input type="text" class="form-control" placeholder="Search">
-					</div>
-				</form>
-			</li>
-			<!--/.Search Form-->
+            <!--Search Form-->
+            <li>
+                <form class="search-form" role="search">
+                    <div class="form-group waves-light waves-effect waves-light">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </li>
+            <!--/.Search Form-->
 
-			<!-- Side navigation links -->
-			<li>
-				<ul class="collapsible collapsible-accordion">
-					<li><a class="collapsible-header waves-effect arrow-r"><i
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li><a class="collapsible-header waves-effect arrow-r"><i
 							class="fa fa-heart"></i> About<i
 							class="fa fa-angle-down rotate-icon"></i></a>
-						<div class="collapsible-body">
-							<ul>
-								<li><a href="#" class="waves-effect">Memo</a></li>
-								<li><a href="#" class="waves-effect">Regist</a></li>
-							</ul>
-						</div></li>
-				</ul>
-			</li>
-			<!--/. Side navigation links -->
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Memo</a></li>
+                                <li><a href="#" class="waves-effect">Regist</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
 
-			<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
-				<div class="ps-scrollbar-x" tabindex="0"
-					style="left: 0px; width: 0px;"></div>
-			</div>
-			<div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;">
-				<div class="ps-scrollbar-y" tabindex="0"
-					style="top: 0px; height: 0px;"></div>
-			</div>
-		</ul>
-		<!--/. Sidebar navigation -->
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;">
+                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
+        </ul>
+        <!--/. Sidebar navigation -->
 
-		<!--Navbar-->
-		<nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
-			<!-- SideNav slide-out button -->
-			<div class="float-xs-left">
-				<a href="#" data-activates="slide-out" class="button-collapse"><i
+        <!--Navbar-->
+        <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+            <!-- SideNav slide-out button -->
+            <div class="float-xs-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i
 					class="fa fa-bars"></i></a>
-			</div>
-			<!-- Breadcrumb-->
-			<div class="breadcrumb-dn">
-				<p>ラクラク家計簿</p>
-			</div>
-			<ul class="nav navbar-nav float-xs-right">
-				<li class="nav-item "><a
-					class="nav-link waves-effect waves-light"><i class="fa fa-user"></i>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn">
+                <p>ラクラク家計簿</p>
+            </div>
+            <ul class="nav navbar-nav float-xs-right">
+                <li class="nav-item "><a class="nav-link waves-effect waves-light"><i class="fa fa-user"></i>
 						<span class="hidden-sm-down">管理</span></a></li>
-				<li class="nav-item dropdown">
-					<button type="button"
-						class="btn btn-primary btn-sm btn-lg waves-effect waves-light">#</button>
-				</li>
-			</ul>
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn btn-primary btn-sm btn-lg waves-effect waves-light">#</button>
+                </li>
+            </ul>
 
-		</nav>
-		<!--/.Navbar-->
-	</header>
-	<!--/Double Navigation-->
+        </nav>
+        <!--/.Navbar-->
+    </header>
+    <!--/Double Navigation-->
 
-	<main class="">
-	<div class="container-fluid text-xs-center">
-			<div class="row">
-				<!-- 食費 -->
-				<div class="col-md-6">
-					<div class="row text-xs-left">
-						<div class="col-md-12">
-							<div class="card card-food">
-								<div class="view overlay hm-white-slight">
-									<img src="../../../static/img/food.jpg" th:src="@{/img/food.jpg}" class="img-fluid" alt="">
-									<a>
-										<div class="mask waves-effect waves-light"></div>
-									</a>
-								</div>
-								<div class="card-block">
-									<h4 class="card-title">Foods</h4>
-									<div class="md-form">
-										<i class="fa fa-tag prefix"></i> <input type="text" id="mmnmFood" 
-											class="form-control"> <label for="form1" class="">Something
-											... </label>
-										<div class="row text-xs-right">
-											<button class="btn btn-indigo btn-lg waves-effect waves-light"
-													id="btnFood">Regist</button>
-										</div>
-									</div>
-									<!-- ここ繰り返す -->
-									<th:block th:each="memo : ${memos}" >
-										<div th:if="${memo.mmsb}==2" th:class="card-food- + ${memo.mmid}">
-											<p class="card-footer">
-												<span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
-														id="btn-food-1" name="btn-food"
-														class="btn btn-outline-info btn-sm">X</button></span>
-											</p>
-										</div>
-									</th:block>
-									<!-- ここ繰り返す -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-	
-				<!-- 日用品 -->
-				<div class="col-md-6">
-					<div class="row text-xs-left">
-						<div class="col-md-12">
-							<div class="card card-food">
-								<div class="view overlay hm-white-slight">
-									<img src="../../../static/img/nitiyou.jpg" th:src="@{/img/nitiyou.jpg}" class="img-fluid"
-										alt=""> <a>
-										<div class="mask waves-effect waves-light"></div>
-									</a>
-								</div>
-								<div class="card-block">
-									<h4 class="card-title">Daily necessities</h4>
-									<div class="md-form">
-										<i class="fa fa-tag prefix"></i> <input type="text" id="mmnmNichiyou" 
-											class="form-control"> <label for="form1" class="">Something
-											... </label>
-										<div class="row text-xs-right">
-											<button class="btn btn-success btn-lg waves-effect waves-light"
-													id="btnNishityou"
-												onclick="toastr.success('テストを登録しました！.');">Regist</button>
-										</div>
-									</div>
-									<!-- ここ繰り返す -->
-									<th:block th:each="memo : ${memos}">
-										<div th:if="${memo.mmsb}==1" th:class="card-food- + ${memo.mmid}">
-											<p class="card-footer">
-												<span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
-														id="btn-food-1" name="btn-food"
-														class="btn btn-outline-info btn-sm">X</button></span>
-											</p>
-										</div>
-									</th:block>
-									<!-- ここ繰り返す -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<a class="btn btn-default btn-lg waves-effect waves-light"
-					data-toggle="modal" data-target="#modal-test"> <i
-					class="fa fa-shopping-cart left"></i> <span>Cart Modal</span>
-				</a>
-	
-	
-				<div class="modal fade cart-modal" id="modal-test" tabindex="-1"
-					role="dialog" aria-labelledby="myModalLabel" style="display: none;"
-					aria-hidden="true">
-					<div class="modal-dialog modal-notify modal-info" role="document">
-						<!--Content-->
-						<div class="modal-content">
-							<!--Header-->
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-								<h4 class="modal-title" id="myModalLabel">警告</h4>
-							</div>
-							<!--Body-->
-							<div class="modal-body">test</div>
-							<!--Footer-->
-							<div class="modal-footer">
-								<button type="button"
-									class="btn btn-default waves-effect waves-light"
-									data-dismiss="modal">Close</button>
-							</div>
-						</div>
-						<!--/.Content-->
-					</div>
-				</div>
-			</div>
-	</div>
-	</main>
-	<!-- SCRIPTS -->
-	<script type="text/javascript"
-		src="../../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
-	<script type="text/javascript" src="../../../static/js/tether.min.js" th:src="@{/js/tether.min.js}"></script>
-	<script type="text/javascript"
-		src="../../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-	<script type="text/javascript" src="../../../static/js/mdb.min.js" th:src="@{/js/mdb.min.js}"></script>
-	<script>
-		$(".button-collapse").sideNav();
+    <main class="">
+        <div class="container-fluid text-xs-center">
+            <div class="row">
+                <div id="messages">
+                    <form:errors path="*" />
+                </div>
+                <!-- 食費 -->
+                <div class="col-md-6">
+                    <div class="row text-xs-left">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="view overlay hm-white-slight">
+                                    <img src="../../../static/img/food.jpg" th:src="@{/img/food.jpg}" class="img-fluid" alt="">
+                                    <a>
+                                        <div class="mask waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+                                <div class="card-block card-food" id="card-food">
+                                    <h4 class="card-title">Foods</h4>
+                                    <div class="md-form">
+                                        <i class="fa fa-tag prefix"></i>
+                                        <input type="text" id="mmnmFood" class="form-control" required>
+                                        <label for="form1" class="">Something ... </label>
+                                        <div class="row text-xs-right">
+                                            <button class="btn btn-indigo btn-lg waves-effect waves-light" id="btnFood">Regist</button>
+                                        </div>
+                                    </div>
+                                    <!-- ここ繰り返す -->
+                                    <th:block th:each="memo : ${memos}">
+                                        <div th:if="${memo.mmsb}==2" th:id="card-food- + ${memo.mmid}">
+                                            <input type="hidden" th:value="${memo.mmid}" />
+                                            <p class="card-footer">
+                                                <span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
+														id="btn-food" name="card-food"
+														class="btn btn-outline-info btn-sm" th:data-mmid="${memo.mmid}">X</button></span>
+                                            </p>
+                                        </div>
+                                    </th:block>
+                                    <!-- ここ繰り返す -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-		var el = document.querySelector('.custom-scrollbar');
+                <!-- 日用品 -->
+                <div class="col-md-6">
+                    <div class="row text-xs-left">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="view overlay hm-white-slight">
+                                    <img src="../../../static/img/nitiyou.jpg" th:src="@{/img/nitiyou.jpg}" class="img-fluid" alt="">
+                                    <a>
+                                        <div class="mask waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+                                <div class="card-block card-nitiyou" id="card-nitiyou">
+                                    <h4 class="card-title">Daily necessities</h4>
+                                    <div class="md-form">
+                                        <i class="fa fa-tag prefix"></i>
+                                        <input type="text" id="mmnmNitiyou" class="form-control" required>
+                                        <label for="form1" class="">Something ... </label>
+                                        <div class="row text-xs-right">
+                                            <button class="btn btn-success btn-lg waves-effect waves-light" id="btnNishityou">Regist</button>
+                                        </div>
+                                    </div>
+                                    <!-- ここ繰り返す -->
+                                    <th:block th:each="memo : ${memos}">
+                                        <div th:if="${memo.mmsb}==1" th:id="card-nitiyou- + ${memo.mmid}">
+                                            <p class="card-footer">
+                                                <input type="hidden" th:value="${memo.mmid}" />
+                                                <span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
+														id="btn-food- + ${memo.mmid}" name="card-nitiyou"
+														class="btn btn-outline-info btn-sm" th:data-mmid="${memo.mmid}">X</button></span>
+                                            </p>
+                                        </div>
+                                    </th:block>
+                                    <!-- ここ繰り返す -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="../../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script type="text/javascript" src="../../../static/js/tether.min.js" th:src="@{/js/tether.min.js}"></script>
+    <script type="text/javascript" src="../../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="../../../static/js/mdb.min.js" th:src="@{/js/mdb.min.js}"></script>
+    <script>
+        $(".button-collapse").sideNav();
 
-		Ps.initialize(el);
-	</script>
-	<script type="text/javascript" src="../../../static/js/memo/index.js" th:src="@{/js/memo/index.js}"></script>
-	<div class="hiddendiv common"></div>
-	<div class="drag-target"
-		style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
+        var el = document.querySelector('.custom-scrollbar');
+
+        Ps.initialize(el);
+    </script>
+    <script type="text/javascript" src="../../../static/js/memo/index.js" th:src="@{/js/memo/index.js}"></script>
+    <div class="hiddendiv common"></div>
+    <div class="drag-target" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
 </body>
 
 </html>
