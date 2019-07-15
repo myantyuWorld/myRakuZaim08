@@ -1,9 +1,14 @@
 package com.goldchain.www.controller;
 
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.ibatis.io.ResolverUtil.IsA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.goldchain.www.api.APIResponseHandler;
 import com.goldchain.www.bean.MoneyBean;
 import com.goldchain.www.domain.ZaimApiService;
-import com.goldchain.www.domain.ZaimInfo;
 
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.OAuthProvider;
@@ -26,8 +30,8 @@ import oauth.signpost.exception.OAuthNotAuthorizedException;
 @RequestMapping("pages/index")
 public class IndexController {
 	
-	@Autowired
-	ZaimInfo zaiminfo;
+//	@Autowired
+//	ZaimInfo zaiminfo;
 	
 	@Autowired
     OAuthConsumer consumer;
@@ -81,11 +85,12 @@ public class IndexController {
         provider.retrieveAccessToken(consumer, oauthVerifier);
 
         // トークンを取得（これを保存しておくと再認証しなくていい
-        setZaimAccessToken(consumer);
+        Map<String, String> tokenDictionary  = setZaimAccessToken(consumer);
         
         // 保存していたトークンをセット
-        consumer.setTokenWithSecret(zaiminfo.getAccessToken(), zaiminfo.getAccessTokenSecret());
-//        consumer.setTokenWithSecret(accessToken, accessTokenSecret);
+        if (tokenDictionary != null) {
+        	consumer.setTokenWithSecret(tokenDictionary.get("token"), tokenDictionary.get("tokenSecret"));
+        }
      
         // HttpClient準備
         CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -127,9 +132,12 @@ public class IndexController {
      * @param consumer
      * 		consumer
      */
-	private void setZaimAccessToken(OAuthConsumer consumer) {
-        zaiminfo.setAccessToken(consumer.getToken());
-        zaiminfo.setAccessTokenSecret(consumer.getTokenSecret());
+	private Map<String, String> setZaimAccessToken(OAuthConsumer consumer) {
+		Map<String, String> tokenDictionary = new HashMap<>();
+		tokenDictionary.put("token", consumer.getToken());
+		tokenDictionary.put("tokenSecret", consumer.getTokenSecret());
+		
+		return tokenDictionary;
 	}
 	
 }

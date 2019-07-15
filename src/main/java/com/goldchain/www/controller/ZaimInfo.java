@@ -1,4 +1,4 @@
-package com.goldchain.www.domain;
+package com.goldchain.www.controller;
 
 import java.io.Serializable;
 

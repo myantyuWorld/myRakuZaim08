@@ -10,6 +10,7 @@
 		<result property="mmid" column="MMID" />
 		<result property="mmsb" column="MMSB" />
 		<result property="mmnm" column="MMNM" />
+		<result property="deleteflg" column="DELETEFLG" />	
 	</resultMap>
 	<select id="selectAll" resultMap="memoResultMap">
 	SELECT
@@ -17,7 +18,9 @@
 	  , MMSB
 	  , MMNM 
 	FROM
-	  t_memo; 
+	  t_memo
+	WHERE 
+		DELETEFLG != 1;
 	</select>
 	<select id="selectMaxMMid" resultType="int">
 		SELECT
@@ -29,11 +32,16 @@
 	<insert id="insertMemo" parameterType="com.goldchain.www.domain.Memo">
 		INSERT 
 		INTO t_memo 
-		VALUES (#{mmid}, #{mmsb}, #{mmnm});
+		VALUES (#{mmid}, #{mmsb}, #{mmnm}, 0);
 	</insert>
 	
 	<delete id="deleteMemo">
-		DELETE FROM t_memo WHERE mmid = #{mmid};
+		<!-- DELETE FROM t_memo WHERE mmid = #{mmid}; -->
+		UPDATE t_memo 
+		SET
+		  deleteflg = 1 
+		WHERE
+		  mmid = #{mmid};
 	</delete>
 	
 </mapper>
