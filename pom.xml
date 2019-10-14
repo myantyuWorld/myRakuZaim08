@@ -68,6 +68,12 @@
 			<artifactId>signpost-commonshttp4</artifactId>
 			<version>1.2.1.2</version>
 		</dependency>
+		<!-- Simple Slack API -->
+		<dependency>
+			<groupId>com.ullink.slack</groupId>
+			<artifactId>simpleslackapi</artifactId>
+			<version>0.6.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

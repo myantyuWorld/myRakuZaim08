@@ -16,12 +16,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.goldchain.www.bean.MemoForm;
 import com.goldchain.www.domain.Memo;
 import com.goldchain.www.domain.MemoService;
+import com.goldchain.www.domain.SlackBaseService;
 
 @Controller
 public class MemoController {
 
 	@Autowired
 	private MemoService memoService;
+	
+	@Autowired
+	private SlackBaseService slackBaseService;
 	
 	/***
 	 * index method
@@ -43,19 +47,24 @@ public class MemoController {
 	 * 入力したメモをINSERTする
 	 * @param memo
 	 * @return
+	 * @throws Exception 
 	 */
 	@ResponseBody
 	@PostMapping("/pages/memo/post")
-	private Object post(@ModelAttribute @Valid Memo memo,  BindingResult result)
+	private Object post(@ModelAttribute @Valid Memo memo,  BindingResult result) throws Exception
 	{
 		// 入力チェック
 		if (result.hasErrors()) {
 			return null;
 		}
 		int intMaxMMid = memoService.selectMaxMMid();
-		int intInsertResult = 0;
 		memo.setMmid(intMaxMMid);
-		intInsertResult = memoService.insertMemo(memo);
+		if (memoService.insertMemo(memo) > 0) {
+			// slack api call
+			slackBaseService.helloWorldToSlackBot();
+		} else {
+			throw new Exception();
+		}
 		return memo;
 	}
 	
