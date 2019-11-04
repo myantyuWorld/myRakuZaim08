@@ -26,6 +26,8 @@ $(function() {
 			ajaxDelete(url, _mmid, _name);
 		}
 	});
+	// 入力頻度の多いメモ内容を取得し、メモテキストにplaceholderとして配置する
+	initPlaceHolderMemo();
 });
 
 // メモ画面共通のクリアメソッド
@@ -104,6 +106,22 @@ function ajaxDelete(url, _mmid, _name){
     	} else {
         	toastr.error('削除に失敗しました！');
     	}
+    })
+    // Ajaxリクエストが失敗した時発動
+    .fail( (data) => {
+    	toastr.error('Ajaxリクエストに失敗しました。myantyuに相談してね！');
+    })
+}
+
+function initPlaceHolderMemo(){
+	$.ajax({
+        url: ,
+        type:'GET'
+    })
+    // Ajaxリクエストが成功した時発動
+    .done( (data) => {
+    	if (data > 0){
+    	} 
     })
     // Ajaxリクエストが失敗した時発動
     .fail( (data) => {

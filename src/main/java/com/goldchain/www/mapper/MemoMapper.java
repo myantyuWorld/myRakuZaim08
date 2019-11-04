@@ -13,4 +13,6 @@ public interface MemoMapper {
 	int insertMemo(Memo memo);
 	
 	int deleteMemo(int mmid);
+	
+	ArrayList<Memo> selectOrderManyMemoNaiyou();
 }

@@ -11,6 +11,8 @@ public class Memo {
 	@NotBlank
 	private String mmnm;
 	
+	private int count;
+	
 	public int getMmid() {
 		return mmid;
 	}
@@ -29,6 +31,12 @@ public class Memo {
 	}
 	public void setMmnm(String mmnm) {
 		this.mmnm = mmnm;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	
 	

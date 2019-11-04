@@ -10,6 +10,7 @@
 		<result property="mmid" column="MMID" />
 		<result property="mmsb" column="MMSB" />
 		<result property="mmnm" column="MMNM" />
+		<result property="count" column="COUNT" />
 		<result property="deleteflg" column="DELETEFLG" />	
 	</resultMap>
 	<select id="selectAll" resultMap="memoResultMap">
@@ -27,6 +28,26 @@
 		  max(mmid) + 1
 		FROM
 		  t_memo; 
+	</select>
+	<select id="selectOrderManyMemoNaiyou" resultMap="memoResultMap">
+	SELECT
+	  MMNM
+	  ,MMSB
+	  ,COUNT 
+	FROM
+	  ( 
+	    SELECT
+	      MMNM
+		  ,MMSB
+	      , count(MMNM) AS count 
+	    FROM
+	      t_memo 
+	    GROUP BY
+	      MMNM
+		  ,MMSB
+	  ) MAIN
+	  order by count DESC
+	  ; 
 	</select>
 	
 	<insert id="insertMemo" parameterType="com.goldchain.www.domain.Memo">

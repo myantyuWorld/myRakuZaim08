@@ -69,6 +69,11 @@ public class MemoController {
 		return memo;
 	}
 	
+	/***
+	 * メモ内容を削除
+	 * @param memo
+	 * @return
+	 */
 	@ResponseBody
 	@PostMapping("pages/memo/delete")
 	private int delete(@ModelAttribute Memo memo) 
@@ -80,6 +85,18 @@ public class MemoController {
 		}
 		
 		return intDeleteResult;
+	}
+	/***
+	 * 
+	 * @param memo
+	 * @return
+	 * @throws Exception 
+	 */
+	@ResponseBody
+	@PostMapping("pages/memo/initPlaceHolderMemo")
+	private ArrayList<Memo> initPlaceHolderMemo(@ModelAttribute Memo memo) throws Exception
+	{
+		return this.memoService.initPlaceHolderMemo();
 	}
 	
 }
