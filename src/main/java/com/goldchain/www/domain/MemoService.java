@@ -1,12 +1,13 @@
 package com.goldchain.www.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import org.omg.CORBA.portable.ApplicationException;
+import org.apache.commons.codec.binary.StringUtils;
+import org.apache.ibatis.io.ResolverUtil.IsA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
 
 import com.goldchain.www.mapper.MemoMapper;
 
@@ -42,14 +43,12 @@ public class MemoService {
 	 * @throws Exception 
 	 */
 	@Transactional
-	public ArrayList<Memo> initPlaceHolderMemo() throws Exception {
-		ArrayList<Memo> memos = new ArrayList<Memo>();
-		memos = this.memoMapper.selectOrderManyMemoNaiyou();
+	public Memo initPlaceHolderMemo(int mmsb) throws Exception {
+		Memo memo = this.memoMapper.selectOrderManyMemoNaiyou(mmsb);
 		// 検索できないとき、例外をスローする
-		if (CollectionUtils.isEmpty(memos)) {
+		if (memo == null) {
 			throw new Exception();
 		}
-		return memos;
-		
+		return memo;
 	}
 }

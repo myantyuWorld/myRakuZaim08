@@ -30,24 +30,12 @@
 		  t_memo; 
 	</select>
 	<select id="selectOrderManyMemoNaiyou" resultMap="memoResultMap">
-	SELECT
-	  MMNM
-	  ,MMSB
-	  ,COUNT 
-	FROM
-	  ( 
-	    SELECT
-	      MMNM
-		  ,MMSB
-	      , count(MMNM) AS count 
-	    FROM
-	      t_memo 
-	    GROUP BY
-	      MMNM
-		  ,MMSB
-	  ) MAIN
-	  order by count DESC
-	  ; 
+		SELECT
+		  max(MMNM) as MMNM
+		FROM
+		  t_memo 
+		WHERE
+		  mmsb = #{mmsb}
 	</select>
 	
 	<insert id="insertMemo" parameterType="com.goldchain.www.domain.Memo">

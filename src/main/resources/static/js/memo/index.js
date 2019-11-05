@@ -27,7 +27,8 @@ $(function() {
 		}
 	});
 	// 入力頻度の多いメモ内容を取得し、メモテキストにplaceholderとして配置する
-	initPlaceHolderMemo();
+	initPlaceHolderMemo(url, MMSB_NITIYOU); // 日用品
+	initPlaceHolderMemo(url, MMSB_FOOD);	// 食費
 });
 
 // メモ画面共通のクリアメソッド
@@ -112,21 +113,31 @@ function ajaxDelete(url, _mmid, _name){
     	toastr.error('Ajaxリクエストに失敗しました。myantyuに相談してね！');
     })
 }
-
-function initPlaceHolderMemo(){
+/***
+ * メモ予測変換用SPANの初期設定
+ * @param url
+ * @returns
+ */
+function initPlaceHolderMemo(url, _mmsb){
 	$.ajax({
-        url: ,
-        type:'GET'
+        url: url + '/initPlaceHolderMemo' ,
+        type:'GET',
+        data: {
+        	mmsb : _mmsb
+        }
     })
     // Ajaxリクエストが成功した時発動
     .done( (data) => {
-    	if (data > 0){
-    	} 
+    	logger(data);
+    	var id = (_mmsb == 1) ? '#lblNichiyou': '#lblFood';
+    	 $(id).prepend('<span id="btnManyMmnm' + _mmsb +  '" class="tag blue tag_many" style="cursor: hand; cursor:pointer;">' + data["mmnm"] + '</span>');
     })
     // Ajaxリクエストが失敗した時発動
     .fail( (data) => {
-    	toastr.error('Ajaxリクエストに失敗しました。myantyuに相談してね！');
+    	toastr.error('Ajaxリクエスト失敗。myantyuに相談してね！ : initPlaceHoderMemo()');
+    	logger(data);
     })
 }
+
 
 

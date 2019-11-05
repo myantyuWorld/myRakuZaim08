@@ -1,6 +1,7 @@
 package com.goldchain.www.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.validation.Valid;
 
@@ -90,13 +91,13 @@ public class MemoController {
 	 * 
 	 * @param memo
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ResponseBody
-	@PostMapping("pages/memo/initPlaceHolderMemo")
-	private ArrayList<Memo> initPlaceHolderMemo(@ModelAttribute Memo memo) throws Exception
+	@RequestMapping("pages/memo/initPlaceHolderMemo")
+	private Memo initPlaceHolderMemo(@ModelAttribute Memo memo) throws Exception
 	{
-		return this.memoService.initPlaceHolderMemo();
+		return this.memoService.initPlaceHolderMemo(memo.getMmsb());
 	}
 	
 }
