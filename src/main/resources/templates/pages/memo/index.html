@@ -129,14 +129,14 @@
                                         <i class="fa fa-tag prefix"></i>
                                         <input type="text" id="mmnmFood" class="form-control" required>
                                         <label for="form1" class="" id="lblFood">
-	                                        <!-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
-                                        	<th:block th:each="placeFood,stat : ${placeFoodList}" th:object="${placeFood}">
-                                        		<span th:id="btnManyMmnm + ${stat.count}" class="tag blue tag_many" style="cursor: hand; cursor:pointer;">
-                                        			[[*{mmnm}]]
-                                        		</span>
-                                        	</th:block>
                                         	Something ... 
                                         </label>
+                                        <!-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
+                                       	<th:block th:each="placeFood,stat : ${placeFoodList}" th:object="${placeFood}">
+                                       		<span th:id="btnManyMmnm + ${stat.count}" class="tag blue tag_many" style="cursor: hand; cursor:pointer;">
+                                       			[[*{mmnm}]]
+                                       		</span>
+                                       	</th:block>
                                         <div class="row text-xs-right">
                                             <button class="btn btn-indigo btn-lg waves-effect waves-light" id="btnFood">Regist</button>
                                         </div>
@@ -176,14 +176,14 @@
                                         <i class="fa fa-tag prefix"></i>
                                         <input type="text" id="mmnmNitiyou" class="form-control" required>
                                         <label for="form1" class="" id="lblNichiyou">
-                                        	<!-- !-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
-                                        	<th:block th:each="placeNichiyou,stat : ${placeNichiyouList}" th:object="${placeNichiyou}">
-                                        		<span th:id="btnManyMmnm + ${stat.count}" class="tag blue tag_many" style="cursor: hand; cursor:pointer;">
-                                        			[[*{mmnm}]]
-                                        		</span>
-                                        	</th:block>
                                         	Something ... 
                                         </label>
+                                       	<!-- !-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
+                                       	<th:block th:each="placeNichiyou,stat : ${placeNichiyouList}" th:object="${placeNichiyou}">
+                                       		<span th:id="btnManyMmnm + ${stat.count}" class="tag blue tag_many" style="cursor: hand; cursor:pointer;">
+                                       			[[*{mmnm}]]
+                                       		</span>
+                                       	</th:block>
                                         <div class="row text-xs-right">
                                             <button class="btn btn-success btn-lg waves-effect waves-light" id="btnNishityou">Regist</button>
                                         </div>
