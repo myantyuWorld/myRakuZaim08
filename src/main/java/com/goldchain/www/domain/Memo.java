@@ -4,13 +4,25 @@ import javax.validation.constraints.NotBlank;
 
 public class Memo {
 
-	
+	/***
+	 * メモID
+	 */
 	private int mmid;
-	
+	/***
+	 * メモ種別
+	 * 1 ： 日用品
+	 * 2 ： 食費
+	 */
 	private int mmsb;
+	/***
+	 * メモ内容
+	 */
 	@NotBlank
 	private String mmnm;
-	
+	/***
+	 * カウント
+	 * メモの入力数をカウントする用
+	 */
 	private int count;
 	
 	public int getMmid() {
@@ -19,7 +31,6 @@ public class Memo {
 	public void setMmid(int mmid) {
 		this.mmid = mmid;
 	}
-	
 	public int getMmsb() {
 		return mmsb;
 	}
@@ -38,6 +49,4 @@ public class Memo {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
-	
 }

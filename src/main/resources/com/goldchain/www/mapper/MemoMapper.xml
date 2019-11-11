@@ -30,12 +30,21 @@
 		  t_memo; 
 	</select>
 	<select id="selectOrderManyMemoNaiyou" resultMap="memoResultMap">
+	<!-- 食費・日用品 で入力の多いレコードを取得する-->
 		SELECT
-		  max(MMNM) as MMNM
+		  MMNM
+		  , count(MMNM) AS count 
 		FROM
 		  t_memo 
 		WHERE
-		  mmsb = #{mmsb}
+		  mmsb = #{mmsb} 
+		GROUP BY
+		  MMNM 
+		ORDER BY
+		  cnt DESC 
+		LIMIT
+		  2
+
 	</select>
 	
 	<insert id="insertMemo" parameterType="com.goldchain.www.domain.Memo">
