@@ -2,6 +2,7 @@ package com.goldchain.www.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -32,14 +33,13 @@ public class MemoController {
 	 * index method
 	 * @param model
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping("/pages/memo")
-	private String index(Model model)
+	private String index(Model model) throws Exception
 	{
-		ArrayList<Memo> memos = new ArrayList<>();
-		memos = memoService.selectAll();
-		
-		model.addAttribute("memos", memos);
+		// 初期表示設定
+		this.memoService.init(model);
 		
  		return "pages/memo/index";
 	}
@@ -87,17 +87,4 @@ public class MemoController {
 		
 		return intDeleteResult;
 	}
-	/***
-	 * 
-	 * @param memo
-	 * @return
-	 * @throws Exception
-	 */
-	@ResponseBody
-	@RequestMapping("pages/memo/initPlaceHolderMemo")
-	private Memo initPlaceHolderMemo(@ModelAttribute Memo memo) throws Exception
-	{
-		return this.memoService.initPlaceHolderMemo(memo.getMmsb());
-	}
-	
 }

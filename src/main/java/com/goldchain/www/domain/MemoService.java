@@ -1,14 +1,14 @@
 package com.goldchain.www.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
-import org.apache.commons.codec.binary.StringUtils;
-import org.apache.ibatis.io.ResolverUtil.IsA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
+import com.goldchain.www.common._enum.Mmsb;
 import com.goldchain.www.mapper.MemoMapper;
 
 @Service
@@ -18,8 +18,19 @@ public class MemoService {
 	private MemoMapper memoMapper;
 	
 	@Transactional
-	public ArrayList<Memo> selectAll() {
-		return memoMapper.selectAll();
+	public void init(Model model) throws Exception {
+		ArrayList<Memo> memoList = new ArrayList<>();
+		List<Memo> memoPlaceHolderFoods = new ArrayList<>();
+		List<Memo> memoPlaceHolderNichiyou = new ArrayList<>();
+		// 日用品・食費の明細部取得
+		memoList = memoMapper.selectAll();
+		// 日用品・食費の予測入力部分取得
+		memoPlaceHolderNichiyou = initPlaceHolderMemo(Mmsb.Nichiyou.ordinal());
+		memoPlaceHolderFoods = initPlaceHolderMemo(2);
+		
+		model.addAttribute("memos", memoList);
+		model.addAttribute("placeNichiyouList", memoPlaceHolderNichiyou);
+		model.addAttribute("placeFoodList", memoPlaceHolderFoods);
 	}
 	
 	@Transactional
@@ -43,12 +54,12 @@ public class MemoService {
 	 * @throws Exception 
 	 */
 	@Transactional
-	public Memo initPlaceHolderMemo(int mmsb) throws Exception {
-		Memo memo = this.memoMapper.selectOrderManyMemoNaiyou(mmsb);
+	public List<Memo> initPlaceHolderMemo(int mmsb) throws Exception {
+		List<Memo> memoList = this.memoMapper.selectOrderManyMemoNaiyou(mmsb);
 		// 検索できないとき、例外をスローする
-		if (memo == null) {
+		if (memoList == null) {
 			throw new Exception();
 		}
-		return memo;
+		return memoList;
 	}
 }
