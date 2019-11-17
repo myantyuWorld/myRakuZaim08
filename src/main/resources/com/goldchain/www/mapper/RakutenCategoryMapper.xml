@@ -9,6 +9,7 @@
 		type="com.goldchain.www.bean.RecipeCategory"
 		id="categoryResultMap">
 		<id property="categoryId" column="cgid" />
+		<result property="cgsb" column="cgsb" />
 		<result property="categoryName" column="cgnm" />
 		<result property="parentCategoryId" column="cgpi" />
 		<result property="categoryUrl" column="cgur" />
@@ -88,4 +89,16 @@
 		now()
 		);
 	</insert>
+	<select id="selectByCgsb" resultMap="categoryResultMap">
+		SELECT
+		  cgsb
+		  , cgid
+		  , cgnm
+		  , cgpi
+		  , cgur 
+		FROM
+		  recipe_category 
+		WHERE
+		  cgsb = #{cgsb};
+	</select>
 </mapper>

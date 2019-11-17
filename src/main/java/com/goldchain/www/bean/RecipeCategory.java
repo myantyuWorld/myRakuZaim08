@@ -24,6 +24,8 @@ public  class RecipeCategory {
 	private String categoryUrl;
 	@JsonIgnore
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	@JsonIgnore
+	private Integer cgsb;
 
 	@JsonProperty("categoryName")
 	public String getCategoryName() {
@@ -74,5 +76,15 @@ public  class RecipeCategory {
 	public void setAdditionalProperty(String name, Object value) {
 		this.additionalProperties.put(name, value);
 	}
+
+	public Integer getCgsb() {
+		return cgsb;
+	}
+
+	public void setCgsb(Integer cgsb) {
+		this.cgsb = cgsb;
+	}
+	
+	
 
 }

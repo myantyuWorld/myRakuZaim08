@@ -44,6 +44,18 @@ public class RakutenService {
 	 */
 	public void init(Model model) {
 		logger.info("call init()");
+		
+		setSelectBoxLargeCategory(model);
+	}
+
+	/***
+	 * 大分類カテゴリセレクトボックス設定
+	 * @param model
+	 */
+	private void setSelectBoxLargeCategory(Model model) {
+		logger.info("call setSelectBoxLargeCategory(Model model)");
+		
+		model.addAttribute("selectLarge", this.rakutenCategoryMapper.selectByCgsb(1));
 	}
 
 	/***
@@ -70,6 +82,12 @@ public class RakutenService {
 		return tmpRecipeCount;
 	}
 
+	/***
+	 * 楽天レシピカテゴリをDB登録する
+	 * @param list
+	 * @param categoryShubetsu
+	 * @return
+	 */
 	private int insertRecipeCategory(List<RecipeCategory> list, int categoryShubetsu) {
 		int tmpRecipeCount = 0;
 		for (RecipeCategory category : list) {
