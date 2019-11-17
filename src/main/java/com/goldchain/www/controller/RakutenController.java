@@ -21,7 +21,6 @@ public class RakutenController {
 	@RequestMapping("pages/rakuten")
 	private String index(Model model) {
 		this.rakutenService.init(model);
-		
 		return "pages/rakuten/index";
 	}
 }
