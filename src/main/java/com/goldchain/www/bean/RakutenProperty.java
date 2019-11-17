@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
  */
 public class RakutenProperty {
 
+	@Value("${rakuten.apiCategoryUrl}")
+	private String rakutenApiCategoryUrl;
 	@Value("${rakuten.applicationId}")
 	private String rakutenApplicationId;
 	@Value("${rakuten.applicationSecret}")
@@ -16,6 +18,12 @@ public class RakutenProperty {
 	@Value("${rakuten.affiliateId}")
 	private String rakutenAffiliateId;
 	
+	public String getRakutenApiCategoryUrl() {
+		return rakutenApiCategoryUrl;
+	}
+	public void setRakutenApiCategoryUrl(String rakutenApiCategoryUrl) {
+		this.rakutenApiCategoryUrl = rakutenApiCategoryUrl;
+	}
 	public String getRakutenApplicationId() {
 		return rakutenApplicationId;
 	}
