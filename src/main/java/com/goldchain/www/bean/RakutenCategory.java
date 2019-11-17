@@ -44,17 +44,17 @@ public class RakutenCategory {
 	public static class Result {
 
 		@JsonProperty("small")
-		private List<Small> small = null;
+		private List<RecipeCategory> small = null;
 		@JsonIgnore
 		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 		@JsonProperty("small")
-		public List<Small> getSmall() {
+		public List<RecipeCategory> getSmall() {
 			return small;
 		}
 
 		@JsonProperty("small")
-		public void setSmall(List<Small> small) {
+		public void setSmall(List<RecipeCategory> small) {
 			this.small = small;
 		}
 
@@ -70,7 +70,7 @@ public class RakutenCategory {
 
 		@JsonInclude(JsonInclude.Include.NON_NULL)
 		@JsonPropertyOrder({ "categoryName", "parentCategoryId", "categoryId", "categoryUrl" })
-		public static class Small {
+		public static class RecipeCategory {
 
 			@JsonProperty("categoryName")
 			private String categoryName;

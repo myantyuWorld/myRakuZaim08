@@ -1,5 +1,7 @@
 package com.goldchain.www.controller;
 
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,14 @@ public class RakutenController {
 	@RequestMapping("pages/rakuten/categoryImport")
 	private Object categoryImport() {
 		logger.info("call categoryImport()");
-		this.rakutenService.getCategories();
-		
-		return "";
+		try {
+			if (this.rakutenService.rakutenCategoryImport() > 0) {
+				return "1"; // success
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "0"; // failed
 	}
 }

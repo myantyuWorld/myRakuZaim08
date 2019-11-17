@@ -22,16 +22,16 @@ public class RakutenService {
 
 	private static final Logger logger = LoggerFactory.getLogger(RakutenService.class);
 
+	@Autowired
+	RakutenProperty rakutenProperty;
+	
 	private URL url = null;
-	private String strUrlRakutenRecipeCategory = this.rakutenProperty.getRakutenApiCategoryUrl()
-			+ this.rakutenProperty.getRakutenApplicationId();
+	
 	private HttpURLConnection urlConnection = null;
 	private InputStream in = null;
 	private BufferedReader reader = null;
 	private RakutenCategory category = null;
 
-	@Autowired
-	RakutenProperty rakutenProperty;
 
 	/***
 	 * 初期設定
@@ -42,19 +42,34 @@ public class RakutenService {
 		logger.info("call init()");
 	}
 
+
+	/***
+	 * 楽天レシピカテゴリをDB登録する
+	 * @return
+	 * @throws IOException
+	 */
+	public int rakutenCategoryImport() throws IOException {
+		RakutenCategory category = this.getCategories();
+		
+		return 0;
+	}
+	
 	/***
 	 * 楽天レシピカテゴリ一覧をJSON変換した結果で返す
 	 * @return
 	 * @throws IOException
 	 */
 	public RakutenCategory getCategories() throws IOException {
+		String strUrlRakutenRecipeCategory = this.rakutenProperty.getRakutenApiCategoryUrl()
+				+ this.rakutenProperty.getRakutenApplicationId();
+		
 		logger.info("call getCategories()");
 		url = new URL(strUrlRakutenRecipeCategory);
 		logger.info(strUrlRakutenRecipeCategory);
 		urlConnection = (HttpURLConnection) url.openConnection();
 		urlConnection.setRequestMethod("GET");
 		urlConnection.connect();
-
+		
 		int status = urlConnection.getResponseCode();
 		logger.info(String.valueOf(status));
 		if (status == HttpURLConnection.HTTP_OK) {
@@ -67,7 +82,7 @@ public class RakutenService {
 			}
 			System.out.println(output.toString());
 			logger.info(output.toString());
-
+			
 			ObjectMapper mapper = new ObjectMapper();
 			// rakuten レシピAPIの処理結果を変換する
 			category = mapper.readValue(output.toString(), RakutenCategory.class);
@@ -77,5 +92,4 @@ public class RakutenService {
 		}
 		return category;
 	}
-
 }
