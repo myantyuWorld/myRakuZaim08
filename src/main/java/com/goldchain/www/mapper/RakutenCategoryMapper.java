@@ -2,10 +2,14 @@ package com.goldchain.www.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.goldchain.www.bean.RakutenCategory.Result.RecipeCategory;
+import com.goldchain.www.bean.RecipeCategory;
 
 @Mapper
 public interface RakutenCategoryMapper {
 
 	int insertRakutenCategory(RecipeCategory recipeCategory);
+	int insertRakutenCategoryLarge(RecipeCategory recipeCategory);
+	int insertRakutenCategoryMedium(RecipeCategory recipeCategory);
+	int insertRakutenCategorySmall(RecipeCategory recipeCategory);
+	
 }

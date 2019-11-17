@@ -45,6 +45,13 @@ public class RakutenCategory {
 
 		@JsonProperty("small")
 		private List<RecipeCategory> small = null;
+		
+		@JsonProperty("medium")
+		private List<RecipeCategory> medium= null;
+		
+		@JsonProperty("large")
+		private List<RecipeCategory> large= null;
+		
 		@JsonIgnore
 		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -52,10 +59,25 @@ public class RakutenCategory {
 		public List<RecipeCategory> getSmall() {
 			return small;
 		}
-
 		@JsonProperty("small")
 		public void setSmall(List<RecipeCategory> small) {
 			this.small = small;
+		}
+		@JsonProperty("medium")
+		public List<RecipeCategory> getMedium() {
+			return medium;
+		}
+		@JsonProperty("medium")
+		public void setMedium(List<RecipeCategory> medium) {
+			this.medium = medium;
+		}
+		@JsonProperty("large")
+		public List<RecipeCategory> getLarge() {
+			return large;
+		}
+		@JsonProperty("large")
+		public void setLarge(List<RecipeCategory> large) {
+			this.large = large;
 		}
 
 		@JsonAnyGetter
@@ -68,71 +90,6 @@ public class RakutenCategory {
 			this.additionalProperties.put(name, value);
 		}
 
-		@JsonInclude(JsonInclude.Include.NON_NULL)
-		@JsonPropertyOrder({ "categoryName", "parentCategoryId", "categoryId", "categoryUrl" })
-		public static class RecipeCategory {
-
-			@JsonProperty("categoryName")
-			private String categoryName;
-			@JsonProperty("parentCategoryId")
-			private String parentCategoryId;
-			@JsonProperty("categoryId")
-			private Integer categoryId;
-			@JsonProperty("categoryUrl")
-			private String categoryUrl;
-			@JsonIgnore
-			private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-			@JsonProperty("categoryName")
-			public String getCategoryName() {
-				return categoryName;
-			}
-
-			@JsonProperty("categoryName")
-			public void setCategoryName(String categoryName) {
-				this.categoryName = categoryName;
-			}
-
-			@JsonProperty("parentCategoryId")
-			public String getParentCategoryId() {
-				return parentCategoryId;
-			}
-
-			@JsonProperty("parentCategoryId")
-			public void setParentCategoryId(String parentCategoryId) {
-				this.parentCategoryId = parentCategoryId;
-			}
-
-			@JsonProperty("categoryId")
-			public Integer getCategoryId() {
-				return categoryId;
-			}
-
-			@JsonProperty("categoryId")
-			public void setCategoryId(Integer categoryId) {
-				this.categoryId = categoryId;
-			}
-
-			@JsonProperty("categoryUrl")
-			public String getCategoryUrl() {
-				return categoryUrl;
-			}
-
-			@JsonProperty("categoryUrl")
-			public void setCategoryUrl(String categoryUrl) {
-				this.categoryUrl = categoryUrl;
-			}
-
-			@JsonAnyGetter
-			public Map<String, Object> getAdditionalProperties() {
-				return this.additionalProperties;
-			}
-
-			@JsonAnySetter
-			public void setAdditionalProperty(String name, Object value) {
-				this.additionalProperties.put(name, value);
-			}
-
-		}
+		
 	}
 }

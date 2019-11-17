@@ -19,7 +19,7 @@ function categoryImport(url) {
     })
     // Ajaxリクエストが成功した時発動
     .done( (data) => {
-    	toastr.success('処理成功')
+    	toastr.success('楽天レシピカテゴリのインポート処理成功')
     })
     // Ajaxリクエストが失敗した時発動
     .fail( (data) => {

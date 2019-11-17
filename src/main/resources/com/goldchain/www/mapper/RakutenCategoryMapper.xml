@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.goldchain.www.mapper.RakutenCategoryMapper">
+
+	<resultMap
+		type="com.goldchain.www.bean.RecipeCategory"
+		id="categoryResultMap">
+		<id property="categoryId" column="cgid" />
+		<result property="categoryName" column="cgnm" />
+		<result property="parentCategoryId" column="cgpi" />
+		<result property="categoryUrl" column="cgur" />
+
+	</resultMap>
+	<insert id="insertRakutenCategory"
+		parameterType="com.goldchain.www.bean.RecipeCategory">
+		INSERT
+		INTO recipe_category (
+		cgid, 
+		cgnm, 
+		cgpi, 
+		cgur, 
+		insd )
+		VALUES (
+		#{categoryId}, 
+		#{categoryName}, 
+		#{parentCategoryId}, 
+		#{categoryUrl}, 
+		now()
+		);
+	</insert>
+	<insert id="insertRakutenCategoryLarge"
+		parameterType="com.goldchain.www.bean.RecipeCategory">
+		INSERT
+		INTO recipe_category (
+		cgid, 
+		cgsb,
+		cgnm, 
+		cgpi, 
+		cgur, 
+		insd )
+		VALUES (
+		#{categoryId},
+		1, 
+		#{categoryName}, 
+		#{parentCategoryId}, 
+		#{categoryUrl}, 
+		now()
+		);
+	</insert>
+	<insert id="insertRakutenCategoryMedium"
+		parameterType="com.goldchain.www.bean.RecipeCategory">
+		INSERT
+		INTO recipe_category (
+		cgid,
+		cgsb, 
+		cgnm, 
+		cgpi, 
+		cgur, 
+		insd )
+		VALUES (
+		#{categoryId}, 
+		2,
+		#{categoryName}, 
+		#{parentCategoryId}, 
+		#{categoryUrl}, 
+		now()
+		);
+	</insert>
+	<insert id="insertRakutenCategorySmall"
+		parameterType="com.goldchain.www.bean.RecipeCategory">
+		INSERT
+		INTO recipe_category (
+		cgid,
+		cgsb, 
+		cgnm, 
+		cgpi, 
+		cgur, 
+		insd )
+		VALUES (
+		#{categoryId}, 
+		3,
+		#{categoryName}, 
+		#{parentCategoryId}, 
+		#{categoryUrl}, 
+		now()
+		);
+	</insert>
+</mapper>
