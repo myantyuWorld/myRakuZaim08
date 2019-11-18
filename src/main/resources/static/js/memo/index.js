@@ -26,6 +26,13 @@ $(function() {
 			ajaxDelete(url, _mmid, _name);
 		}
 	});
+	$(document).on('click', ".tag, .blue, .tag_many", function(){
+		var _mmnm = $(this).data('mmnm');
+		var _mmsb = $(this).data('mmsb');
+		console.log(_mmnm);
+		console.log(_mmsb);
+		ajaxPost(_mmnm, url, _mmsb);
+	});
 });
 
 // メモ画面共通のクリアメソッド
@@ -46,12 +53,12 @@ function checkInput(data) {
 }
 // 「食費」 要素追加メソッド
 function appendFood(data){
-//	card-block
+// card-block
 	$('#card-food').append('<div id=card-food-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-food" class="btn btn-outline-info btn-sm waves-effect waves-light" data-mmid=' + data['mmid'] + '>X</button></span></p></div>')
 }
-//「日用品」 要素追加メソッド
+// 「日用品」 要素追加メソッド
 function appendNitiyou(data){
-//	card-block
+// card-block
 	$('#card-nitiyou').append('<div id=card-nitiyou-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-nitiyou" class="btn btn-outline-info btn-sm waves-effect waves-light" data-mmid=' + data['mmid'] +  '>X</button></span></p></div>')
 }
 // メモを登録するAPIをたたく

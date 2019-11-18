@@ -133,7 +133,9 @@
                                         </label>
                                         <!-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
                                        	<th:block th:each="placeFood,stat : ${placeFoodList}" th:object="${placeFood}">
-                                       		<span th:id="btnManyMmnm + ${stat.count}" class="tag blue tag_many" style="cursor: hand; cursor:pointer;">
+                                       		<span th:id="btnManyMmnm + ${stat.count}" 
+                                       			class="tag blue tag_many" style="cursor: hand; cursor:pointer;"
+                                       			th:data-mmnm="${placeFood.mmnm}" th:data-mmsb="2">
                                        			[[*{mmnm}]]
                                        		</span>
                                        	</th:block>
@@ -180,7 +182,10 @@
                                         </label>
                                        	<!-- !-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
                                        	<th:block th:each="placeNichiyou,stat : ${placeNichiyouList}" th:object="${placeNichiyou}">
-                                       		<span th:id="btnManyMmnm + ${stat.count}" class="tag blue tag_many" style="cursor: hand; cursor:pointer;">
+                                       		<span th:id="btnManyMmnm + ${stat.count}" 
+                                       			class="tag blue tag_many" 
+                                       			style="cursor: hand; cursor:pointer;"
+                                       			th:data-mmnm="${placeNichiyou.mmnm}" th:data-mmsb="1">
                                        			[[*{mmnm}]]
                                        		</span>
                                        	</th:block>
