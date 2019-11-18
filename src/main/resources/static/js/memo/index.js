@@ -54,12 +54,12 @@ function checkInput(data) {
 // 「食費」 要素追加メソッド
 function appendFood(data){
 // card-block
-	$('#card-food').append('<div id=card-food-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-food" class="btn btn-outline-info btn-sm waves-effect waves-light" data-mmid=' + data['mmid'] + '>X</button></span></p></div>')
+	$('#card-food').append('<div id=card-food-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-food" class="btn btn-outline-info btn-sm  btn-rounded waves-effect waves-light" data-mmid=' + data['mmid'] + '>X</button></span></p></div>')
 }
 // 「日用品」 要素追加メソッド
 function appendNitiyou(data){
 // card-block
-	$('#card-nitiyou').append('<div id=card-nitiyou-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-nitiyou" class="btn btn-outline-info btn-sm waves-effect waves-light" data-mmid=' + data['mmid'] +  '>X</button></span></p></div>')
+	$('#card-nitiyou').append('<div id=card-nitiyou-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-nitiyou" class="btn btn-outline-info btn-sm btn-rounded waves-effect waves-light" data-mmid=' + data['mmid'] +  '>X</button></span></p></div>')
 }
 // メモを登録するAPIをたたく
 function ajaxPost(data, url, _mmsb) {

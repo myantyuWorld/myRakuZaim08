@@ -1,4 +1,8 @@
 @charset "UTF-8";
+#body  {
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 .memo-hint {
 	
 }
@@ -6,3 +10,8 @@
 .tag_many {
 	font-size : 1.2rem;
 }
+
+.card-footer {
+	padding: .25rem 1.00rem;
+}
+
