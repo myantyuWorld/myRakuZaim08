@@ -5,33 +5,126 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="../../../static/css/bootstrap.min.css" rel="stylesheet">
-<link href="../../../static/css/mdb.min.css" rel="stylesheet">
+<link href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link href="../../../static/css/mdb.min.css" th:href="@{/css/mdb.min.css}" rel="stylesheet">
 <link href="../../../static/css/index/index.css" th:href="@{/css/index/index.css}" rel="stylesheet">
-<style>
-body {
-	background:
-		url("http://mdbootstrap.com/images/regular/nature/img%20(62)")
-		no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-</style>
-<title>ラクラク家計簿</title>
+<title>myRakuZaim08!</title>
 </head>
-<body class="fixed-sn blue-skin">
-	【hello rakuZaim08 app!】
-	
-	
-	<!-- SCRIPTS -->
-	<script type="text/javascript"
-		src="../../../static/js/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="../../../static/js/tether.min.js"></script>
-	<script type="text/javascript"
-		src="../../../static/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../../../static/js/mdb.min.js"></script>
+<body>
+<header>
+        <!--Navbar-->
+        <nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar mdb-gradient top-nav-collapse">
+            <!-- Collapse button-->
+            <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
+            <i class="fa fa-bars"></i></button>
+            <div class="container">
+                <!--Collapse content-->
+                <div class="collapse navbar-toggleable-xs" id="collapseEx">
+                    <!--Links-->
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light" href="http://mdbootstrap.com/getting-started/"></i>#</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light" href="http://mdbootstrap.com/live/_MDB/index/docs/presentation-free/lp-sections.html">#</a>
+                        </li>
+                    </ul>
+                    <!--Navbar icons-->
+                    <ul class="nav navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect waves-light"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect waves-light"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://plus.google.com/u/0/b/107863090883699620484/+Mdbootstrap/posts" class="nav-link waves-effect waves-light"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Collapse content-->
+            </div>
+        </nav>
+        <!--/.Navbar-->
+    </header>
+	<main>
+        <!--Main layout-->
+        <div class="container">
+        	<br/>
+            <div class="row">
+                <!--Sidebar-->
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" style="animation-name: none; visibility: visible;">
+                    <div class="widget-wrapper">
+                        <h4>Functions:</h4>
+                        <br>
+                        <div class="list-group">
+                            <a href="/rakuzaim08/pages/memo" class="list-group-item active">Memo</a>
+                            <a href="#" class="list-group-item">#</a>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="widget-wrapper wow fadeIn" data-wow-delay="0.4s" style="animation-name: none; visibility: visible;">
+                        <h4>Subscription form:</h4>
+                        <br>
+                        <div class="card">
+                            <div class="card-body">
+                                <p><strong>Subscribe to our newsletter</strong></p>
+                                <p>Once a week we will send you a summary of the most useful news</p>
+                                <div class="md-form">
+                                    <i class="fa fa-user prefix"></i>
+                                    <input type="text" id="form1" class="form-control">
+                                    <label for="form1">Your name</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="form2" class="form-control">
+                                    <label for="form2">Your email</label>
+                                </div>
+                                <button class="btn btn-primary waves-effect waves-light">Submit</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Sidebar-->
+                <!--Main column-->
+                <div class="col-lg-8">
+                    <!--First row-->
+                    <div class="row wow fadeIn" data-wow-delay="0.4s" style="animation-name: none; visibility: visible;">
+                        <div class="col-md-12">
+                            <!--Product-->
+                            <div class="product-wrapper">
+                                <!--Featured image-->
+                                <div class="view overlay hm-white-light z-depth-1-half">
+                                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(109).jpg" class="img-fluid " alt="">
+                                    <div class="mask waves-effect waves-light">
+                                    </div>
+                                    <h3 class="price"><span class="badge red darken-2"></span></h3>
+                                </div>
+                                <!--/.Featured image-->
+                                <br>
+                                <!--Product data-->
+                                <h2 class="h2-responsive mt-4">Release Notes</h2>
+                                <hr>
+                                <p>新機能情報を書く</p>
+                                <p>新機能情報を書く</p>
+                                <p>新機能情報を書く（ローテーションする）</p>
+                            </div>
+                            <!--Product-->
+                        </div>
+                    </div>
+                    <!--/.First row-->
+                </div>
+                <!--/.Main column-->
+            </div>
+        </div>
+        <!--/.Main layout-->
+    </main>
+	<script type="text/javascript" src="../../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+	<script type="text/javascript" src="../../../static/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+	<script type="text/javascript" src="../../../static/js/tether.min.js" th:src="@{/js/tether.min.js}"></script>
+	<script type="text/javascript" src="../../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../../static/js/mdb.min.js" th:src="@{/js/mdb.min.js}"></script>
 	<script>
         $(".button-collapse").sideNav();
 
@@ -39,38 +132,8 @@ body {
 
         Ps.initialize(el);
     </script>
-	<script>
-        $(function() {
-            var data = {
-                labels: ["食費", "日用品", "服", "交際費", "May", "Jun", "Jul"],
-                datasets: [{
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                }, {
-                    label: "My Second dataset",
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }]
-            };
-            var option = {
-                responsive: true,
-                scaleFontSize: 20,
-            };
-            // Chart 3
-            var ctx = document.getElementById("myChart").getContext('2d');
-            var barChart = new Chart(ctx).Bar(data, option);
-        });
+    <script>
+    	new WOW().init();
     </script>
 </body>
 </html>
