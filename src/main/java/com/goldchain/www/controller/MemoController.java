@@ -21,6 +21,7 @@ import com.goldchain.www.domain.MemoService;
 import com.goldchain.www.domain.SlackBaseService;
 
 @Controller
+@RequestMapping("rakuzaim08")
 public class MemoController {
 
 	@Autowired
@@ -41,7 +42,7 @@ public class MemoController {
 		// 初期表示設定
 		this.memoService.init(model);
 		
- 		return "pages/memo/index";
+ 		return "rakuzaim08/pages/memo/index";
 	}
 	
 	/***

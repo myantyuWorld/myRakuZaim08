@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags always come first -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Bootstrap core CSS -->
+<link href="../../../static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Material Design Bootstrap -->
+<link href="../../../static/css/mdb.min.css" rel="stylesheet">
+<style>
+body {
+	background:
+		url("http://mdbootstrap.com/images/regular/nature/img%20(62)")
+		no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
+<title>ラクラク家計簿</title>
+</head>
+
+<body class="fixed-sn blue-skin">
+	【hello rakuZaim08 app!】
+	<!-- SCRIPTS -->
+	<script type="text/javascript"
+		src="../../../static/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/tether.min.js"></script>
+	<script type="text/javascript"
+		src="../../../static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/mdb.min.js"></script>
+	<script>
+        $(".button-collapse").sideNav();
+
+        var el = document.querySelector('.custom-scrollbar');
+
+        Ps.initialize(el);
+    </script>
+	<script>
+        $(function() {
+            var data = {
+                labels: ["食費", "日用品", "服", "交際費", "May", "Jun", "Jul"],
+                datasets: [{
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                }, {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }]
+            };
+            var option = {
+                responsive: true,
+                scaleFontSize: 20,
+            };
+            // Chart 3
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var barChart = new Chart(ctx).Bar(data, option);
+        });
+    </script>
+</body>
+
+</html>
