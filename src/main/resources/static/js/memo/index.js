@@ -26,7 +26,7 @@ $(function() {
 			ajaxDelete(url, _mmid, _name);
 		}
 	});
-	$(document).on('click', ".tag, .blue, .tag_many", function(){
+	$(document).on('click', ".tag_many", function(){
 		var _mmnm = $(this).data('mmnm');
 		var _mmsb = $(this).data('mmsb');
 		ajaxPost(_mmnm, url, _mmsb);
@@ -36,9 +36,9 @@ $(function() {
 // メモ画面共通のクリアメソッド
 function allInitInput() {
 	$("#mmnmFood").val("");
-	$("#mmnmFood").css("background-color", "#ffffff");
+	$("#mmnmFood").css("background-color", "#CADAFF");
 	$("#mmnmNitiyou").val("");
-	$("#mmnmNitiyou").css("background-color", "#ffffff");
+	$("#mmnmNitiyou").css("background-color", "#CADAFF");
 }
 // メモ共通の入力チェックメソッド
 function checkInput(data) {
@@ -52,12 +52,12 @@ function checkInput(data) {
 // 「食費」 要素追加メソッド
 function appendFood(data){
 // card-block
-	$('#card-food').append('<div id=card-food-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-food" class="btn-floating btn  btn-vk  waves-effect waves-light" data-mmid=' + data['mmid'] + '><i class="fa fa-trash"></i></button></span></p></div>')
+	$('#card-food').append('<div id=card-food-' + data["mmid"] + '><p class="card-footer"><span class="left mmnm">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-food" class="btn-floating btn  btn-default  waves-effect waves-light" data-mmid=' + data['mmid'] + '><i class="fa fa-trash"></i></button></span></p></div>')
 }
 // 「日用品」 要素追加メソッド
 function appendNitiyou(data){
 // card-block
-	$('#card-nitiyou').append('<div id=card-nitiyou-' + data["mmid"] + '><p class="card-footer"><span class="left">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-nitiyou" class="btn-floating btn  btn-vk  waves-effect waves-light" data-mmid=' + data['mmid'] +  '><i class="fa fa-trash"></i></button></span></p></div>')
+	$('#card-nitiyou').append('<div id=card-nitiyou-' + data["mmid"] + '><p class="card-footer"><span class="left mmnm">' + data["mmnm"] + '</span> <span class="right"><button id="btn-food" name="card-nitiyou" class="btn-floating btn btn-default waves-effect waves-light" data-mmid=' + data['mmid'] +  '><i class="fa fa-trash"></i></button></span></p></div>')
 }
 // メモを登録するAPIをたたく
 function ajaxPost(data, url, _mmsb) {

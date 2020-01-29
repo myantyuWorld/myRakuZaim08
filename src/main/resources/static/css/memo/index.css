@@ -1,6 +1,7 @@
 @charset "UTF-8";
-#body  {
+body  {
 	font-family: 'M PLUS Rounded 1c', sans-serif;
+	background-color : #D9E5FF;
 }
 
 .memo-hint {
@@ -8,12 +9,12 @@
 }
 
 .tag_many {
-	font-size : 1.0rem;
+	font-size : 0.9rem;
 	color : white;
 }
 
 .card-footer {
-	padding: .25rem 2.00rem;
+	padding: .05rem 1.00rem;
 }
 
 
@@ -22,5 +23,9 @@
 	white-space: nowrap;
   	text-overflow: ellipsis;
   	overflow: hidden;
+}
+
+.card {
+	background-color : #CADAFF;
 }
 
