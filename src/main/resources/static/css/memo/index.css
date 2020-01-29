@@ -14,7 +14,7 @@ body  {
 }
 
 .card-footer {
-	padding: .05rem 1.00rem;
+	padding: 0.0rem 0.00rem;
 }
 
 
@@ -23,9 +23,13 @@ body  {
 	white-space: nowrap;
   	text-overflow: ellipsis;
   	overflow: hidden;
+  	padding: 1.0rem;
 }
 
 .card {
 	background-color : #CADAFF;
 }
 
+.card-block p {
+	margin-bottom: 0rem;
+}
