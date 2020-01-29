@@ -133,13 +133,15 @@
                                         <!-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
                                        	<th:block th:each="placeFood,stat : ${placeFoodList}" th:object="${placeFood}">
                                        		<span th:id="btnManyMmnm + ${stat.count}" 
-                                       			class="tag blue tag_many" style="cursor: hand; cursor:pointer;"
+                                       			class="btn waves-effect waves-light btn-vk" style="cursor: hand; cursor:pointer;"
                                        			th:data-mmnm="${placeFood.mmnm}" th:data-mmsb="2">
                                        			[[*{mmnm}]]
                                        		</span>
                                        	</th:block>
                                         <div class="row text-xs-right">
-                                            <button class="btn btn-indigo btn-lg btn-rounded waves-effect waves-light" id="btnFood">Regist</button>
+                                            <button class="btn btn-amber waves-effect waves-light" id="btnFood">
+                                            	<i class="fa fa-plus"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <!-- ここ繰り返す -->
@@ -147,9 +149,14 @@
                                         <div th:if="${memo.mmsb}==2" th:id="card-food- + ${memo.mmid}">
                                             <input type="hidden" th:value="${memo.mmid}" />
                                             <p class="card-footer">
-                                                <span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
-														id="btn-food" name="card-food"
-														class="btn btn-outline-info btn-sm btn-rounded" th:data-mmid="${memo.mmid}">X</button></span>
+                                                <span class="left mmnm">
+                                                	[[${memo.mmnm}]]
+                                                </span> 
+                                                <span class="right">
+                                                	<button	id="btn-food" name="card-food" class="btn-floating btn btn-vk  waves-effect waves-light" th:data-mmid="${memo.mmid}">
+                                                		<i class="fa fa-trash"></i>
+                                                	</button>
+                                                </span>
                                             </p>
                                         </div>
                                     </th:block>
@@ -180,14 +187,16 @@
                                        	<!-- !-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
                                        	<th:block th:each="placeNichiyou,stat : ${placeNichiyouList}" th:object="${placeNichiyou}">
                                        		<span th:id="btnManyMmnm + ${stat.count}" 
-                                       			class="tag blue tag_many" 
+                                       			class="btn waves-effect waves-light btn-vk" 
                                        			style="cursor: hand; cursor:pointer;"
                                        			th:data-mmnm="${placeNichiyou.mmnm}" th:data-mmsb="1">
                                        			[[*{mmnm}]]
                                        		</span>
                                        	</th:block>
                                         <div class="row text-xs-right">
-                                            <button class="btn btn-success btn-lg btn-rounded waves-effect waves-light" id="btnNishityou">Regist</button>
+                                            <button class="btn btn-amber waves-effect waves-light" id="btnNishityou">
+                                            	<i class="fa fa-plus"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <!-- ここ繰り返す -->
@@ -195,9 +204,14 @@
                                         <div th:if="${memo.mmsb}==1" th:id="card-nitiyou- + ${memo.mmid}">
                                             <p class="card-footer">
                                                 <input type="hidden" th:value="${memo.mmid}" />
-                                                <span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
-														id="btn-food- + ${memo.mmid}" name="card-nitiyou"
-														class="btn btn-outline-info btn-sm btn-rounded" th:data-mmid="${memo.mmid}">X</button></span>
+                                                <span class="left mmnm">
+                                                	[[${memo.mmnm}]]
+                                                </span> 
+                                                <span class="right">
+                                                	<button id="btn-food- + ${memo.mmid}" name="card-nitiyou" class="btn-floating btn  btn-vk  waves-effect waves-light" th:data-mmid="${memo.mmid}">
+                                                		<i class="fa fa-trash"></i>
+                                                	</button>
+                                                </span>
                                             </p>
                                         </div>
                                     </th:block>

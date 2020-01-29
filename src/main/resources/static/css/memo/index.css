@@ -8,10 +8,19 @@
 }
 
 .tag_many {
-	font-size : 1.2rem;
+	font-size : 1.0rem;
+	color : white;
 }
 
 .card-footer {
-	padding: .25rem 1.00rem;
+	padding: .25rem 2.00rem;
+}
+
+
+.mmnm {
+	font-size : 1.0rem;
+	white-space: nowrap;
+  	text-overflow: ellipsis;
+  	overflow: hidden;
 }
 

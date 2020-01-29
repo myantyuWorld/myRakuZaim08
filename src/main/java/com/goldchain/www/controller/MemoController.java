@@ -64,7 +64,7 @@ public class MemoController {
 		if (memoService.insertMemo(memo) > 0) {
 			// slack api call
 //			slackBaseService.helloWorldToSlackBot();
-			slackBaseService.notifyMemoToSlackBot(memo.getMmnm());
+//			slackBaseService.notifyMemoToSlackBot(memo.getMmnm());
 		} else {
 			throw new Exception();
 		}
