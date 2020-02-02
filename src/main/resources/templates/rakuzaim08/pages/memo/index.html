@@ -119,13 +119,13 @@
                                 </div>
                                 <div class="card-block card-food" id="card-food">
                                     <div class="md-form">
-                                    	<div class="col-sm-9">
+                                    	<div class="col-sm-9 col-xs-9">
 	                                        <input type="text" id="mmnmFood" class="form-control" required>
 	                                        <label for="form1" class="" id="lblFood">
 	                                        	Something ... 
 	                                        </label>
                                     	</div>
-                                    	<div class="col-sm-3">
+                                    	<div class="col-sm-3 col-xs-3">
 	                                    	<div class="row text-xs-right">
 	                                            <button class="btn btn-amber waves-effect waves-light" id="btnFood">
 	                                            	<i class="fa fa-plus"></i>
@@ -136,7 +136,7 @@
                                         <div class="hidden">
 	                                       	<th:block th:each="placeFood,stat : ${placeFoodList}" th:object="${placeFood}">
 	                                       		<span th:id="btnManyMmnm + ${stat.count}" 
-	                                       			class="btn waves-effect waves-light btn-secondary tag_many" style="cursor: hand; cursor:pointer;"
+	                                       			class="btn waves-effect btn-sm waves-light btn-secondary tag_many" style="cursor: hand; cursor:pointer;"
 	                                       			th:data-mmnm="${placeFood.mmnm}" th:data-mmsb="2">
 	                                       			[[*{mmnm}]]
 	                                       		</span>
@@ -180,13 +180,13 @@
                                 </div>
                                 <div class="card-block card-nitiyou" id="card-nitiyou">
                                     <div class="md-form">
-                                    	<div class="col-sm-9">
+                                    	<div class="col-sm-9 col-xs-9">
 	                                        <input type="text" id="mmnmNitiyou" class="form-control" required>
 	                                        <label for="form1" class="" id="lblNichiyou">
 	                                        	Something ... 
 	                                        </label>
                                     	</div>
-                                    	<div class="col-sm-3">
+                                    	<div class="col-sm-3  col-xs-3">
 	                                        <div class="row text-xs-right">
 	                                            <button class="btn btn-amber waves-effect waves-light" id="btnNishityou">
 	                                            	<i class="fa fa-plus"></i>
@@ -196,7 +196,7 @@
                                        	<!-- !-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
                                        	<th:block th:each="placeNichiyou,stat : ${placeNichiyouList}" th:object="${placeNichiyou}">
                                        		<span th:id="btnManyMmnm + ${stat.count}" 
-                                       			class="btn waves-effect waves-light btn-secondary tag_many" 
+                                       			class="btn waves-effect btn-sm waves-light btn-secondary tag_many" 
                                        			style="cursor: hand; cursor:pointer;"
                                        			th:data-mmnm="${placeNichiyou.mmnm}" th:data-mmsb="1">
                                        			[[*{mmnm}]]
