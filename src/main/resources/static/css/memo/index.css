@@ -36,3 +36,15 @@ body  {
 .card-block p {
 	margin-bottom: 0rem;
 }
+
+.carousel-fade .carousel-control {
+	z-index: 0;
+}
+
+.carousel-control.right{
+	height : 105px;
+}
+.carousel-control.left{
+	height : 105px;
+}
+
