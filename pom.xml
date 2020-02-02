@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<packaging>war</packaging>
+	<!-- <packaging>war</packaging> -->
 	<artifactId>RakuMyZaim</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>RakuMyZaim</name>
@@ -82,6 +82,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+	                <executable>true</executable>
+	            </configuration>
 			</plugin>
 			<!-- 実行可能jarファイル用のプラグイン -->
 			<plugin>
