@@ -22,4 +22,9 @@ public interface MemoMapper {
 	 * @return 最も入力されているメモの内容
 	 */
 	List<Memo> selectOrderManyMemoNaiyou(int mmsb);
+	/***
+	 * 最も入力されているデータを取得する[ALL]
+	 * @return 最も入力されているメモの内容(食費、日用品ともに）
+	 */
+	List<Memo> selectOrderManyMemoNaiyouAll();
 }

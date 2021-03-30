@@ -1,6 +1,7 @@
 @charset "UTF-8";
-#body  {
+body  {
 	font-family: 'M PLUS Rounded 1c', sans-serif;
+	background-color : #D9E5FF;
 }
 
 .memo-hint {
@@ -8,10 +9,42 @@
 }
 
 .tag_many {
-	font-size : 1.2rem;
+	font-size : 0.9rem;
+	color : white;
 }
 
 .card-footer {
-	padding: .25rem 1.00rem;
+	padding: 0.0rem 0.00rem;
+}
+
+.fixed-sn main, .hidden-sn main {
+	padding-top : 1.5rem;
+}
+
+.mmnm {
+	font-size : 1.0rem;
+	white-space: nowrap;
+  	text-overflow: ellipsis;
+  	overflow: hidden;
+  	padding: 1.0rem;
+}
+
+.card {
+	background-color : #CADAFF;
+}
+
+.card-block p {
+	margin-bottom: 0rem;
+}
+
+.carousel-fade .carousel-control {
+	z-index: 0;
+}
+
+.carousel-control.right{
+	height : 105px;
+}
+.carousel-control.left{
+	height : 105px;
 }
 

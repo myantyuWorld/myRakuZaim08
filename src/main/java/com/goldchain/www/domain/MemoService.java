@@ -33,6 +33,23 @@ public class MemoService {
 		model.addAttribute("placeFoodList", memoPlaceHolderFoods);
 	}
 	
+	// 2021/03/30 add Ajax化
+	@Transactional
+	public List<Memo> getMemoAll() {
+		return this.memoMapper.selectAll();
+	}
+	
+	// 2021/03/30 add Ajax化
+	/***
+	 * 入力回数の多いメモ内容を返す（最大100件、2回以上メモしているものを返す
+	 * 種別＝｛日用品、食費｝の両方を返す
+	 * @return
+	 */
+	@Transactional
+	public List<Memo> getMemoDescriptionManyOrder() {
+		return this.memoMapper.selectOrderManyMemoNaiyouAll();
+	}
+	
 	@Transactional
 	public int selectMaxMMid() {
 		return memoMapper.selectMaxMMid();

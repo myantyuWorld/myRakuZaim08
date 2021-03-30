@@ -25,6 +25,8 @@ public class Memo {
 	 */
 	private int count;
 	
+	private int deleteFlg;
+	
 	public int getMmid() {
 		return mmid;
 	}
@@ -48,5 +50,11 @@ public class Memo {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+	public int getDeleteFlg() {
+		return deleteFlg;
+	}
+	public void setDeleteFlg(int deleteFlg) {
+		this.deleteFlg = deleteFlg;
 	}
 }

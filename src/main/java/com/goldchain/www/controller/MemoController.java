@@ -46,6 +46,25 @@ public class MemoController {
 	}
 	
 	/***
+	 * [Ajax] メモテーブルのすべてを返す
+	 * @return 
+	 * @throws Exception
+	 */
+	@RequestMapping("/vue/memo/index")
+	@ResponseBody
+	private List<Memo> indexVue() throws Exception
+	{
+		return this.memoService.getMemoAll();
+	}
+	
+	@RequestMapping("/vue/memo/descriptionManyOrder")
+	@ResponseBody
+	public List<Memo> indexDescriptionManyOrder() throws Exception
+	{
+		return this.memoService.getMemoDescriptionManyOrder();
+	}
+	
+	/***
 	 * 入力したメモをINSERTする
 	 * @param memo
 	 * @return
@@ -64,7 +83,7 @@ public class MemoController {
 		if (memoService.insertMemo(memo) > 0) {
 			// slack api call
 //			slackBaseService.helloWorldToSlackBot();
-			slackBaseService.notifyMemoToSlackBot(memo.getMmnm());
+//			slackBaseService.notifyMemoToSlackBot(memo.getMmnm());
 		} else {
 			throw new Exception();
 		}

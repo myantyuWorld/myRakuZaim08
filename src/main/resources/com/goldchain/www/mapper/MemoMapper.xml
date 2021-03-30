@@ -12,7 +12,7 @@
 		<result property="mmsb" column="MMSB" />
 		<result property="mmnm" column="MMNM" />
 		<result property="count" column="COUNT" />
-		<result property="deleteflg" column="DELETEFLG" />	
+		<result property="deleteFlg" column="DELETEFLG" />	
 	</resultMap>
 	<select id="selectAll" resultMap="memoResultMap">
 	SELECT
@@ -32,19 +32,43 @@
 	</select>
 	<select id="selectOrderManyMemoNaiyou" resultMap="memoResultMap">
 	<!-- 食費・日用品 で入力の多いレコードを取得する-->
-		SELECT
-		  MMNM
-		  , count(MMNM) AS count 
-		FROM
-		  t_memo 
-		WHERE
-		  mmsb = #{mmsb} 
-		GROUP BY
-		  MMNM 
-		ORDER BY
-		  count DESC 
-		LIMIT
-		  2
+	SELECT
+	  MMNM
+	  , MMSB
+	  , count(MMNM) AS count 
+	FROM
+	  t_memo 
+	WHERE
+	  mmsb = #{mmsb} 
+	GROUP BY
+	  MMNM
+	  , MMSB
+	HAVING
+	  count(MMNM) > 1 
+	ORDER BY
+	  count DESC 
+	LIMIT
+	  100
+	</select>
+	
+	<select id="selectOrderManyMemoNaiyouAll" resultMap="memoResultMap">
+	<!-- 食費・日用品 で入力の多いレコードを取得する-->
+	SELECT
+	  MMNM
+	  , MMSB
+	  , count(MMNM) AS count 
+	FROM
+	  t_memo 
+	GROUP BY
+	  MMNM
+	  , MMSB 
+	HAVING
+	  count(MMNM) > 1 
+	ORDER BY
+	  count DESC 
+	LIMIT
+	  100
+
 
 	</select>
 	

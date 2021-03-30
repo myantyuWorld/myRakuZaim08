@@ -1,230 +1,143 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>メモ!</title>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-
-    <!-- Material Design Bootstrap -->
-    <link href="../../../static/css/mdb.min.css" th:href="@{/css/mdb.min.css}" rel="stylesheet">
-    <link href="../../../static/css/memo/index.css" th:href="@{/css/memo/index.css}" rel="stylesheet">
-    
-    <style>
-        body {
-            background: url("http://mdbootstrap.com/images/regular/nature/img%20(62)") no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    </style>
-</head>
-<style>
-
-</style>
-
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>メモ!</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="../../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="../../../static/css/mdb.min.css" th:href="@{/css/mdb.min.css}" rel="stylesheet">
+  <link href="../../../static/css/memo/index.css" th:href="@{/css/memo/index.css}" rel="stylesheet"> </head>
 <body class="fixed-sn blue-skin">
-    <!--Double Navigation-->
-    <header>
-        <!-- Sidebar navigation -->
-        <ul id="slide-out" class="side-nav fixed custom-scrollbar ps-container ps-theme-default" data-ps-id="2a9a7581-7ddb-3549-d0f3-669155eb440e" style="transform: translateX(-100%);">
-
-            <!-- Logo -->
-            <li>
-                <div class="logo-wrapper waves-light waves-effect waves-light">
-                    <a href="#"><img src="http://mdbootstrap.com/wp-content/uploads/2015/12/mdb-white2.png" class="img-fluid flex-center"></a>
+  <main class="">
+  	<div class="container-fluid text-xs-center">
+    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="">
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <!--First slide-->
+        <div class="carousel-item"> 
+          <div class="card">
+          	<div class="col-md-12">
+            <div class="view overlay hm-white-slight"> <img src="../../../static/img/food.jpg" th:src="@{/img/food.jpg}" class="img-fluid" alt="">
+            </div>
+            <div class="card-block card-food" id="card-food">
+              <div class="md-form">
+                <div class="col-sm-9 col-xs-9"> <input type="text" id="mmnmFood" class="form-control" required> <label for="form1" class="" id="lblFood">
+                        	Something ... 
+                        </label> </div>
+                <div class="col-sm-3 col-xs-3">
+                  <div class="row text-xs-left"> <button class="btn btn-amber waves-effect waves-light" id="btnFood">
+                            	<i class="fa fa-plus"></i>
+                            </button> </div>
                 </div>
-            </li>
-            <!--/. Logo -->
-
-            <!--Search Form-->
-            <li>
-                <form class="search-form" role="search">
-                    <div class="form-group waves-light waves-effect waves-light">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                </form>
-            </li>
-            <!--/.Search Form-->
-
-            <!-- Side navigation links -->
-            <li>
-                <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect arrow-r"><i
-							class="fa fa-heart"></i> About<i
-							class="fa fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="#" class="waves-effect">Memo</a></li>
-                                <li><a href="#" class="waves-effect">Regist</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <!--/. Side navigation links -->
-
-            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
-                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-            </div>
-            <div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;">
-                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-            </div>
-        </ul>
-        <!--/. Sidebar navigation -->
-
-        <!--Navbar-->
-        <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
-            <!-- SideNav slide-out button -->
-            <div class="float-xs-left">
-                <a href="#" data-activates="slide-out" class="button-collapse"><i
-					class="fa fa-bars"></i></a>
-            </div>
-            <!-- Breadcrumb-->
-            <div class="breadcrumb-dn">
-                <p>ラクラク家計簿</p>
-            </div>
-            <ul class="nav navbar-nav float-xs-right">
-                <li class="nav-item "><a class="nav-link waves-effect waves-light"><i class="fa fa-user"></i>
-						<span class="hidden-sm-down">管理</span></a></li>
-                <li class="nav-item dropdown">
-                    <button type="button" class="btn btn-primary btn-sm btn-lg waves-effect waves-light">#</button>
-                </li>
-            </ul>
-
-        </nav>
-        <!--/.Navbar-->
-    </header>
-    <!--/Double Navigation-->
-
-    <main class="">
-        <div class="container-fluid text-xs-center">
-            <div class="row">
-                <div id="messages">
-                    <form:errors path="*" />
+                <!-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
+                <div class="hidden">
+                  <th:block th:each="placeFood,stat : ${placeFoodList}" th:object="${placeFood}"> <span th:id="btnManyMmnm + ${stat.count}" class="btn waves-effect btn-sm waves-light btn-secondary tag_many" style="cursor: hand; cursor:pointer;" th:data-mmnm="${placeFood.mmnm}" th:data-mmsb="2">
+                       			[[*{mmnm}]]
+                       		</span> </th:block>
                 </div>
-                <!-- 食費 -->
-                <div class="col-md-6">
-                    <div class="row text-xs-left">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="view overlay hm-white-slight">
-                                    <img src="../../../static/img/food.jpg" th:src="@{/img/food.jpg}" class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-                                <div class="card-block card-food" id="card-food">
-                                    <div class="md-form">
-                                        <input type="text" id="mmnmFood" class="form-control" required>
-                                        <label for="form1" class="" id="lblFood">
-                                        	Something ... 
-                                        </label>
-                                        <!-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
-                                       	<th:block th:each="placeFood,stat : ${placeFoodList}" th:object="${placeFood}">
-                                       		<span th:id="btnManyMmnm + ${stat.count}" 
-                                       			class="tag blue tag_many" style="cursor: hand; cursor:pointer;"
-                                       			th:data-mmnm="${placeFood.mmnm}" th:data-mmsb="2">
-                                       			[[*{mmnm}]]
-                                       		</span>
-                                       	</th:block>
-                                        <div class="row text-xs-right">
-                                            <button class="btn btn-indigo btn-lg btn-rounded waves-effect waves-light" id="btnFood">Regist</button>
-                                        </div>
-                                    </div>
-                                    <!-- ここ繰り返す -->
-                                    <th:block th:each="memo : ${memos}">
-                                        <div th:if="${memo.mmsb}==2" th:id="card-food- + ${memo.mmid}">
-                                            <input type="hidden" th:value="${memo.mmid}" />
-                                            <p class="card-footer">
-                                                <span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
-														id="btn-food" name="card-food"
-														class="btn btn-outline-info btn-sm btn-rounded" th:data-mmid="${memo.mmid}">X</button></span>
-                                            </p>
-                                        </div>
-                                    </th:block>
-                                    <!-- ここ繰り返す -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <!-- ここ繰り返す -->
+              <th:block th:each="memo : ${memos}">
+                <div th:if="${memo.mmsb}==2" th:id="card-food- + ${memo.mmid}"> <input type="hidden" th:value="${memo.mmid}" />
+                  <p class="card-footer"> <span class="left mmnm">
+                       	[[${memo.mmnm}]]
+                       </span> <span class="right">
+                       	<button	id="btn-food" name="card-food" class="btn-floating btn btn-default  waves-effect waves-light" th:data-mmid="${memo.mmid}">
+                       		<i class="fa fa-trash"></i>
+                       	</button>
+                       </span> 
+				 </p>
                 </div>
-
-                <!-- 日用品 -->
-                <div class="col-md-6">
-                    <div class="row text-xs-left">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="view overlay hm-white-slight">
-                                    <img src="../../../static/img/nitiyou.jpg" th:src="@{/img/nitiyou.jpg}" class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-                                <div class="card-block card-nitiyou" id="card-nitiyou">
-                                    <div class="md-form">
-                                        <input type="text" id="mmnmNitiyou" class="form-control" required>
-                                        <label for="form1" class="" id="lblNichiyou">
-                                        	Something ... 
-                                        </label>
-                                       	<!-- !-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
-                                       	<th:block th:each="placeNichiyou,stat : ${placeNichiyouList}" th:object="${placeNichiyou}">
-                                       		<span th:id="btnManyMmnm + ${stat.count}" 
-                                       			class="tag blue tag_many" 
-                                       			style="cursor: hand; cursor:pointer;"
-                                       			th:data-mmnm="${placeNichiyou.mmnm}" th:data-mmsb="1">
-                                       			[[*{mmnm}]]
-                                       		</span>
-                                       	</th:block>
-                                        <div class="row text-xs-right">
-                                            <button class="btn btn-success btn-lg btn-rounded waves-effect waves-light" id="btnNishityou">Regist</button>
-                                        </div>
-                                    </div>
-                                    <!-- ここ繰り返す -->
-                                    <th:block th:each="memo : ${memos}">
-                                        <div th:if="${memo.mmsb}==1" th:id="card-nitiyou- + ${memo.mmid}">
-                                            <p class="card-footer">
-                                                <input type="hidden" th:value="${memo.mmid}" />
-                                                <span class="left">[[${memo.mmnm}]]</span> <span class="right"><button
-														id="btn-food- + ${memo.mmid}" name="card-nitiyou"
-														class="btn btn-outline-info btn-sm btn-rounded" th:data-mmid="${memo.mmid}">X</button></span>
-                                            </p>
-                                        </div>
-                                    </th:block>
-                                    <!-- ここ繰り返す -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </th:block>
+              <!-- ここ繰り返す -->
             </div>
-    </main>
-    <!-- SCRIPTS -->
-    <script type="text/javascript" src="../../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
-    <script type="text/javascript" src="../../../static/js/tether.min.js" th:src="@{/js/tether.min.js}"></script>
-    <script type="text/javascript" src="../../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-    <script type="text/javascript" src="../../../static/js/mdb.min.js" th:src="@{/js/mdb.min.js}"></script>
-    <script>
-        $(".button-collapse").sideNav();
-
-        var el = document.querySelector('.custom-scrollbar');
-
-        Ps.initialize(el);
-    </script>
-    <script type="text/javascript" src="../../../static/js/common/log.js" th:src="@{/js/common/log.js}"></script>
-    <script type="text/javascript" src="../../../static/js/memo/index.js" th:src="@{/js/memo/index.js}"></script>
-    <div class="hiddendiv common"></div>
-    <div class="drag-target" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
+          </div>
+        </div>
+        </div>
+        <!--/First slide-->
+        <!--Second slide-->
+        <div class="carousel-item active">
+			<div class="card">
+        	<div class="col-md-12">
+                 <div class="view overlay hm-white-slight">
+                     <img src="../../../static/img/nitiyou.jpg" th:src="@{/img/nitiyou.jpg}" class="img-fluid" alt="">
+                 </div>
+                 <div class="card-block card-nitiyou" id="card-nitiyou">
+                     <div class="md-form">
+                     	<div class="col-sm-9 col-xs-9">
+                          <input type="text" id="mmnmNitiyou" class="form-control" required>
+                          <label for="form1" class="" id="lblNichiyou">
+                          	Something ... 
+                          </label>
+                     	</div>
+                     	<div class="col-sm-3  col-xs-3">
+                          <div class="row text-xs-left">
+                              <button class="btn btn-amber waves-effect waves-light" id="btnNishityou">
+                              	<i class="fa fa-plus"></i>
+                              </button>
+                          </div>
+                     	</div>
+                        	<!-- !-- 入力の多いレコードを予測入力するためのSPAN?を挿入 -->
+                        	<th:block th:each="placeNichiyou,stat : ${placeNichiyouList}" th:object="${placeNichiyou}">
+                        		<span th:id="btnManyMmnm + ${stat.count}" 
+                        			class="btn waves-effect btn-sm waves-light btn-secondary tag_many" 
+                        			style="cursor: hand; cursor:pointer;"
+                        			th:data-mmnm="${placeNichiyou.mmnm}" th:data-mmsb="1">
+                        			[[*{mmnm}]]
+                        		</span>
+                        	</th:block>
+                     </div>
+                     <!-- ここ繰り返す -->
+                     <th:block th:each="memo : ${memos}">
+                         <div th:if="${memo.mmsb}==1" th:id="card-nitiyou- + ${memo.mmid}">
+                             <p class="card-footer">
+                                 <input type="hidden" th:value="${memo.mmid}" />
+                                 <span class="left mmnm">
+                                 	[[${memo.mmnm}]]
+                                 </span> 
+                                 <span class="right">
+                                 	<button id="btn-food- + ${memo.mmid}" name="card-nitiyou" class="btn-floating btn  btn-default  waves-effect waves-light" th:data-mmid="${memo.mmid}">
+                                 		<i class="fa fa-trash"></i>
+                                 	</button>
+                                 </span>
+                             </p>
+                         </div>
+                     </th:block>
+                     <!-- ここ繰り返す -->
+                 </div>
+             </div>
+		</div>
+		</div>
+        <!--/Second slide-->
+      </div>
+      <!--/.Slides-->
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-1z" role="button" data-slide="prev">
+	      <span class="icon-prev" aria-hidden="true"></span>
+	      <span class="sr-only">Previous</span>
+      </a> <a class="right carousel-control" href="#carousel-example-1z" role="button" data-slide="next">
+		  <span class="icon-next" aria-hidden="true"></span>
+	      <span class="sr-only">Next</span>
+      </a>
+      <!-- /.Controls -->
+    </div>
+    </div>
+  </main>
+  <!-- SCRIPTS -->
+  <script type="text/javascript" src="../../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+  <script type="text/javascript" src="../../../static/js/tether.min.js" th:src="@{/js/tether.min.js}"></script>
+  <script type="text/javascript" src="../../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+  <script type="text/javascript" src="../../../static/js/mdb.min.js" th:src="@{/js/mdb.min.js}"></script>
+  <script type="text/javascript" src="../../../static/js/common/log.js" th:src="@{/js/common/log.js}"></script>
+  <script type="text/javascript" src="../../../static/js/memo/index.js" th:src="@{/js/memo/index.js}"></script>
+  <div class="hiddendiv common"></div>
+  <div class="drag-target" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
 </body>
-
 </html>
