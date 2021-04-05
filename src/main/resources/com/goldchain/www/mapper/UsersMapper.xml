@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goldchain.www.mapper.UsersMapper">
+
+<resultMap type="com.goldchain.www.domain.pojo.Users"
+		id="usersResultMap">
+		<id property="id" column="user_id" />
+		<result property="id" column="user_id" />
+		<result property="password" column="user_password" />
+	</resultMap>
+	<select id="selectAll" resultMap="usersResultMap">
+	 SELECT
+	   user_id
+	   , user_password 
+	 FROM
+	   users
+	</select>
+	<insert id="insert" parameterType="com.goldchain.www.domain.pojo.Users">
+	insert into users (user_id, user_password) 
+	values (#{id}, #{password});
+	</insert>
+	<update id="createTable" parameterType="com.goldchain.www.domain.pojo.Users">
+	create table if not exists memo_${id} (
+		mmid integer,
+		mmsb integer,
+		mmnm varchar,
+		count integer,
+		deleteFlg integer,
+		regist_date date DEFAULT CURRENT_DATE,
+		update_date date,
+		constraint pkey_memo_${id} primary key(mmid)
+	) ;
+	</update>
+	
+</mapper>
+	
