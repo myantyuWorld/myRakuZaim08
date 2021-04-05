@@ -1,4 +1,4 @@
-package com.goldchain.www.domain.common;
+package com.goldchain.www.domain;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.goldchain.www.domain.Category;
+import com.goldchain.www.domain.pojo.Category;
 import com.goldchain.www.mapper.CategoryMapper;
 
 @Service

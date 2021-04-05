@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.goldchain.www.domain.Memo;
+import com.goldchain.www.domain.pojo.Memo;
 
 @Mapper
 public interface MemoMapper {

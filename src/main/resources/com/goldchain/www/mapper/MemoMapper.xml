@@ -5,7 +5,7 @@
         
 <mapper namespace="com.goldchain.www.mapper.MemoMapper">
 
-<resultMap type="com.goldchain.www.domain.Memo"
+<resultMap type="com.goldchain.www.domain.pojo.Memo"
 		id="memoResultMap">
 		<id property="mmid" column="MMID" />
 		<result property="mmid" column="MMID" />
@@ -72,7 +72,7 @@
 
 	</select>
 	
-	<insert id="insertMemo" parameterType="com.goldchain.www.domain.Memo">
+	<insert id="insertMemo" parameterType="com.goldchain.www.domain.pojo.Memo">
 		INSERT 
 		INTO t_memo 
 		VALUES (#{mmid}, #{mmsb}, #{mmnm}, 0);

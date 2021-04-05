@@ -1,4 +1,4 @@
-package com.goldchain.www.domain;
+package com.goldchain.www.domain.pojo;
 
 import javax.validation.constraints.NotBlank;
 

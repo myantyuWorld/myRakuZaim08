@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import com.goldchain.www.common._enum.Mmsb;
+import com.goldchain.www.domain.pojo.Memo;
 import com.goldchain.www.mapper.MemoMapper;
 
 @Service

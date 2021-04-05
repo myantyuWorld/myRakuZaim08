@@ -1,7 +1,5 @@
 package com.goldchain.www.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,20 +13,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.goldchain.www.bean.MemoForm;
-import com.goldchain.www.domain.Memo;
 import com.goldchain.www.domain.MemoService;
-import com.goldchain.www.domain.SlackBaseService;
+//import com.goldchain.www.domain.SlackBaseService;
+import com.goldchain.www.domain.pojo.Memo;
 
+/***
+ *  旧メモコントローラー
+ * @author yuichi_develop
+ *
+ */
 @Controller
 @RequestMapping("rakuzaim08")
 public class MemoController {
 
 	@Autowired
 	private MemoService memoService;
-	
-	@Autowired
-	private SlackBaseService slackBaseService;
 	
 	/***
 	 * index method
@@ -50,14 +49,14 @@ public class MemoController {
 	 * @return 
 	 * @throws Exception
 	 */
-	@RequestMapping("/vue/memo/index")
+	@RequestMapping("/api/memo/index")
 	@ResponseBody
 	private List<Memo> indexVue() throws Exception
 	{
 		return this.memoService.getMemoAll();
 	}
 	
-	@RequestMapping("/vue/memo/descriptionManyOrder")
+	@RequestMapping("/api/memo/descriptionManyOrder")
 	@ResponseBody
 	public List<Memo> indexDescriptionManyOrder() throws Exception
 	{
