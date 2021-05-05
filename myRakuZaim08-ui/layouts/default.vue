@@ -4,6 +4,7 @@
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
+      src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
       fixed
       app
     >
@@ -103,9 +104,10 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Memo',
+          to: '/memo'
         }
+
       ],
       miniVariant: false,
       right: true,
