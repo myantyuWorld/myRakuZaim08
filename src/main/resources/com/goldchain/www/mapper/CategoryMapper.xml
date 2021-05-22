@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goldchain.www.mapper.CategoryMapper">
 
-<resultMap type="com.goldchain.www.domain.Category"
+<resultMap type="com.goldchain.www.domain.pojo.Category"
 		id="categoryResultMap">
 		<id property="category_id" column="category_id" />
 		<result property="category_id" column="category_id" />
@@ -25,7 +25,7 @@
 		  t_memo; 
 	</select>
 	
-	<insert id="insertMemo" parameterType="com.goldchain.www.domain.Memo">
+	<insert id="insertMemo" parameterType="com.goldchain.www.domain.pojo.Memo">
 		INSERT 
 		INTO t_memo 
 		VALUES (#{mmid}, #{mmsb}, #{mmnm});
