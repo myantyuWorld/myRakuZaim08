@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .v-application {
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app :style="{ background: $vuetify.theme.themes.light.background }">
+            <v-main>
+                <v-container>
+                    <div class="ma-8">
+                        <div class="text-center ma-4 text-h3">
+                            myantyu's Home
+                        </div>
+                        <div class="text-center ma-4">
+                            Now Loading...
+                        </div>
+                        <div class="text-center ma-4">
+                            <v-progress-circular :rotate="360" :size="300" :width="30" :value="value" color="teal">
+                                {{ value }}
+                            </v-progress-circular>
+                        </div>
+                    </div>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify({
+                theme: {
+                    themes: {
+                        light: {
+                            background: "#eeeeee"
+                        }
+                    }
+                }
+            }),
+            data() {
+                return {
+                    interval: {},
+                    value: 0,
+                }
+            },
+            beforeDestroy() {
+                clearInterval(this.interval)
+            },
+            methods : {
+                linkUrl : function() {
+                    location.href = "memo.html"
+                }
+            },
+            mounted() {
+                this.interval = setInterval(() => {
+                    if (this.value > 100) {
+                        setTimeout(this.linkUrl, 1500);
+                    }
+                    this.value += 30
+                }, 500)
+            },
+        })
+    </script>
+</body>
+
+</html>
