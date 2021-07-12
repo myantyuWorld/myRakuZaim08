@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <style>
+        .v-application {
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <v-app :style="{ background: $vuetify.theme.themes.light.background }">
+            <v-main>
+                <v-container>
+                    <div class="ma-4 text-h4">
+                        yyyy/MM/dd
+                    </div>
+                    <div class="ma-4">
+                        <template>
+                            <v-card>
+                                <v-card-title>
+                                    登録
+                                    <v-spacer></v-spacer>
+                                    <v-btn>
+                                        買い忘れない？
+                                        <v-badge color="red" content="6">
+                                        </v-badge>
+                                    </v-btn>
+                                </v-card-title>
+                                <v-card-text>
+                                    <v-form>
+                                        <v-chip-group v-model="selection" active-class="red white--text" column>
+                                            <v-chip>Foods
+                                                <v-icon right>
+                                                    mdi-food
+                                                </v-icon>
+                                            </v-chip>
+                                            <v-chip>Living
+                                                <v-icon right>
+                                                    mdi-truck-delivery
+                                                </v-icon>
+                                            </v-chip>
+                                        </v-chip-group>
+                                        <v-text-field v-model="name" :rules="nameRules" :counter="30" label="品名" required></v-text-field>
+                                        <v-btn class="error">登録</v-btn>
+                                    </v-form>
+                                </v-card-text>
+                            </v-card>
+                        </template>
+                    </div>
+                    <div class="ma-4">
+                    </div>
+                    <div class="ma-4">
+                        <template>
+                            <v-card>
+                                <v-img height="150" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+                                <v-card-title>
+                                    Foods
+                                    <v-icon right>
+                                        mdi-food
+                                    </v-icon>
+                                    <v-spacer></v-spacer>
+                                    <v-btn color="error">
+                                        ✔項目を削除
+                                        <v-icon right>
+                                            mdi-delete-sweep
+                                        </v-icon>
+                                    </v-btn>
+                                </v-card-title>
+                                <v-data-table dense :headers="header_foods" :items="foods" :items-per-page="10" class="elevation-1" loading-text="Loading... Please wait"
+                                    item-key="name" show-select>
+                                    <template v-slot:item.count="{item}">
+                                        <v-chip :color="getColor(item.count)" dark>
+                                            {{item.count}}
+                                        </v-chip>
+                                    </template>
+                                </v-data-table>
+                            </v-card>
+                        </template>
+                    </div>
+                    <div class="ma-4">
+                        <template>
+                            <v-card>
+                                <v-img height="150" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=867&q=80"></v-img>
+                                <v-card-title>
+                                    Living
+                                    <v-icon right>
+                                        mdi-truck-delivery
+                                    </v-icon>
+                                    <v-spacer></v-spacer>
+                                    <v-btn color="error">
+                                        ✔項目を削除
+                                        <v-icon right>
+                                            mdi-delete-sweep
+                                        </v-icon>
+                                    </v-btn>
+                                </v-card-title>
+                                <v-data-table dense :headers="header_necesary" :items="necesary" :items-per-page="10" class="elevation-1" loading-text="Loading... Please wait"
+                                    item-key="name" show-select>
+                                    <template v-slot:item.count="{item}">
+                                        <v-chip :color="getColor(item.count)" dark>
+                                            {{item.count}}
+                                        </v-chip>
+                                    </template>
+                                </v-data-table>
+                            </v-card>
+                        </template>
+                    </div>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify({
+                theme: {
+                    themes: {
+                        light: {
+                            background: "#eeeeee"
+                        }
+                    }
+                }
+            }),
+            data: function () {
+                return {
+                    selection: 0,
+                    message: "Hello First Vue.js!",
+                    header_foods: [
+                        { text: "品名", value: "name" },
+                        { text: "累計数", value: "count" },
+                    ],
+                    header_necesary: [
+                        { text: "品名", value: "name" },
+                        { text: "累計数", value: "count" },
+                    ],
+                    foods: [
+                        { id: "1", name: "beer", count: "1" },
+                        { id: "2", name: "納豆", count: "10" },
+                        { id: "3", name: "豆腐", count: "3" }
+                    ],
+                    necesary: [
+                        { id: "1", name: "食器用洗剤", count: "1" },
+                        { id: "2", name: "クイックルワイパー", count: "10" },
+                        { id: "3", name: "ティッシュ", count: "3" },
+                        { id: "4", name: "猫の餌", count: "3" }
+                    ],
+                }
+            },
+            methods: {
+                getColor(calories) {
+                    if (calories > 10) return 'red'
+                    else if (calories > 5) return 'orange'
+                    else return 'green'
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
